@@ -1,6 +1,12 @@
 Catcalledr::Application.routes.draw do
   get "home/index"
 
+  namespace :admin do
+    resources :participants do
+      resources :bios
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

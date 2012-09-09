@@ -1,0 +1,14 @@
+<h1>Edit <%=@participant.name%>'s Bio</h1>
+
+<%= form_for([:admin, @participant, @bio]) do |f| %>
+  <div><%= notice %></div>
+  <% Bio::QUESTIONS.each_index do |i| %>
+    <div>
+      <%= f.label Bio::QUESTIONS[i], @bio.answers[i] %><br />
+      <%= f.text_area @bio.answers[i] %>
+    </div>
+  <% end %>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

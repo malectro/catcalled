@@ -1,0 +1,9 @@
+<% @participants.each do |participant| %>
+  <div>
+    <%= link_to participant.name, edit_admin_participant_path(participant) %>
+    <%= link_to "Bio", edit_admin_participant_bio_path(participant, participant.bio) %>
+    <%# link_to "Delete?", participant, method: :delete %>
+  </div>
+<% end %>
+
+<div><%= link_to :new, new_admin_participant_path %></div>
