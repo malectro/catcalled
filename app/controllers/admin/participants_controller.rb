@@ -28,7 +28,7 @@ class Admin::ParticipantsController < ApplicationController
     @participant.bio = Bio.new
 
     respond_to do |format|
-      if @participant.save
+      if @participant.save && @participant.bio.save
         format.html { redirect_to action: :index }
         format.json { render json: @participant, status: :created, location: @participant }
       else
