@@ -53,7 +53,7 @@
           <div class="cc-interview">
             <% participant.bio.answers.each_index do |i| %>
               <div class="cc-interview-query"><%= Bio::QUESTIONS[i] %></div>
-              <div class="cc-interview-answer"><%= participant.bio.answers[i] %></div>
+              <div class="cc-interview-answer"><%= raw participant.bio.answer(i) %></div>
             <% end %>
           </div>
         <% end %>

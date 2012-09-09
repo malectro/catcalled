@@ -14,4 +14,8 @@ class Bio
 
   field :answers, type: Array, default: Array.new(QUESTIONS.length, '')
 
+  def answer(index)
+    answers[index].gsub("\n", "<br />")
+  end
+
 end
