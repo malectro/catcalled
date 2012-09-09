@@ -2,13 +2,19 @@
 
 <%= form_for([:admin, @participant, @bio]) do |f| %>
   <div><%= notice %></div>
+
   <% Bio::QUESTIONS.each_index do |i| %>
     <div>
-      <%= f.label Bio::QUESTIONS[i], @bio.answers[i] %><br />
-      <%= f.text_area @bio.answers[i] %>
+      <div><%= Bio::QUESTIONS[i] %></div>
+      <div>
+        <textarea name="bio[answers][]"><%= @bio.answers[i] %></textarea>
+      </div>
     </div>
   <% end %>
+
   <div>
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Back', admin_participants_path %>

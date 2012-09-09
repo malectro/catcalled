@@ -1,10 +1,6 @@
 class Bio
   include Mongoid::Document
 
-  belongs_to :participant
-
-  field :answers, type: Array, default: []
-
   QUESTIONS = [
     'How would you describe the street harassment situation in your neighborhood?',
     'What has been your experience with sexual harassment to date?',
@@ -13,5 +9,9 @@ class Bio
     'Have you ever found catcalling flattering?',
     'Is there anything else you think your audience should know about your past experiences?'
   ]
+
+  belongs_to :participant
+
+  field :answers, type: Array, default: Array.new(QUESTIONS.length, '')
 
 end
