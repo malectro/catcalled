@@ -1,4 +1,4 @@
-class Admin::BiosController < ApplicationController
+class Admin::BiosController < Admin::AdminController
   def update
     @bio = Bio.find(params[:id])
 

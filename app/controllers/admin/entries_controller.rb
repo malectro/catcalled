@@ -1,4 +1,4 @@
-class Admin::EntriesController < ApplicationController
+class Admin::EntriesController < Admin::AdminController
 
   before_filter :fix_time_params, only: [:create, :update]
   before_filter :add_participant_list, only: [:index, :edit]

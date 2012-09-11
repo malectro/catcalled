@@ -1,4 +1,4 @@
-class Admin::ParticipantsController < ApplicationController
+class Admin::ParticipantsController < Admin::AdminController
 
   def index
     @participants = Participant.all
