@@ -1,0 +1,18 @@
+<%= form_for([:admin, @entry]) do |f| %>
+  <div>
+    <%= f.label :participant %>
+    <%= f.select :participant_id, @participants %>
+  </div>
+  <div>
+    <%= f.label :written_at %>
+    <%= f.datetime_select :written_at %>
+  </div>
+  <div>
+    <%= f.label :occured_at %>
+    <%= f.datetime_select :occured_at %>
+  </div>
+  <div>
+    <%= f.text_area :text %>
+  </div>
+  <div><%= f.submit %></div>
+<% end %>

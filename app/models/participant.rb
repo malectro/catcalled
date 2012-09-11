@@ -12,5 +12,15 @@ class Participant
   field :active, type: Boolean
 
   has_one :bio
+  has_many :entries
 
+  class << self
+    def selectible_list
+      Participant.all.map(&:selectible)
+    end
+  end
+
+  def selectible
+    [name, id]
+  end
 end

@@ -23,7 +23,6 @@ class Admin::ParticipantsController < ApplicationController
   end
 
   def create
-    puts params
     @participant = Participant.new(params[:participant])
     @participant.bio = Bio.new
 

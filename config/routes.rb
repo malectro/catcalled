@@ -4,7 +4,9 @@ Catcalledr::Application.routes.draw do
   namespace :admin do
     resources :participants do
       resources :bios
+      resources :entries
     end
+    resources :entries
   end
 
   # The priority is based upon order of creation:
