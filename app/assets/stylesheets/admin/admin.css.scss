@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require base
+ *= require_self
+ *= require_tree .
+ */
+
+h1 {
+  background: #993399;
+  color: white;
+  text-shadow: 0 -1px 1 #882288;
+  font-size: 20px;
+  padding: 10px 20px;
+}
+
+.row {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  a {
+    margin-right: 10px;
+  }
+  > div {
+    margin-bottom: 5px;
+  }
+  .small {
+    color: #999;
+    font-size: 14px;
+  }
+}
+
+.back {
+  display: block;
+  margin: 10px 20px 40px;
+}
+
+form {
+  padding: 20px;
+  > div {
+    margin-bottom: 10px;
+  }
+  input[type=text] {
+    width: 500px;
+    height: 30px;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    box-shadow: 0 5px 10px #ddd inset;
+  }
+  input[type=checkbox] {
+    width: 30px;
+    font-size: 30px;
+  }
+  textarea {
+    width: 600px;
+    height: 200px;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    box-shadow: 0 5px 10px #ddd inset;
+  }
+  input[type=submit], input[type=select] {
+    font-size: 30px;
+  }
+}
+

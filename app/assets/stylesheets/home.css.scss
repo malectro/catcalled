@@ -1,3 +1,135 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.cc-title, .cc-nav-i, .cc-paper {
+  margin: 0 auto;
+  width: 980px;
+}
+
+h2 {
+  font-size: 40px;
+  border-bottom: 1px solid #993399;
+  color: #993399;
+}
+
+/* title */
+.cc-title {
+  padding: 20px 0 10px;
+  font-weight: 300;
+}
+  .cc-title h1 {
+    font-size: 70px;
+    font-weight: 400;
+    color: #fa524f;
+  }
+    .cc-title h1 span {
+      color: #993399;
+    }
+  .cc-subtitle {
+    position: relative;
+    top: -10px;
+    padding-left: 20px;
+    text-indent: 300px;
+    color: #666;
+  }
+
+/* nav */
+.cc-nav {
+  padding: 10px 0;
+  border-bottom: 1px solid #999;
+  background: #993399;
+  color: #333;
+}
+  .cc-nav a {
+    margin-right: 20px;
+    cursor: pointer;
+    font-weight: 300;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.3);
+    color: white;
+  }
+  .cc-nav a:hover {
+    text-shadow: 0 0 5px white;
+  }
+
+
+/* paper */
+.cc-paper {
+  padding-bottom: 40px;
+}
+
+
+/* participants */
+.cc-participants {
+  margin: 20px 0 0;
+}
+.cc-participant {
+  position: relative;
+  float: left;
+  margin: 10px 10px 0 0 ;
+  cursor: pointer;
+}
+  .cc-participant img {
+    width: 160px;
+  }
+  .cc-participant-stats {
+    display: none;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    height: 160px;
+    width: 160px;
+    padding: 10px;
+    font-size: 18px;
+    background: rgba(100,100,200,0.5);
+    color: white;
+  }
+  .cc-participant:hover .cc-participant-stats {
+    display: block;
+  }
+    .cc-participant-stats > div {
+      margin-bottom: 10px;
+    }
+    .cc-participant-stats-name {
+      font-weight: bold
+    }
+    .cc-participant-stats-age, .cc-participant-stats-race, .cc-participant-stats-hood, .cc-participant-stats-sex {
+    }
+
+
+/* interviews */
+.cc-interviews {
+  margin-top: 40px;
+}
+.cc-interview-title {
+  padding: 10px 0;
+  background: #ffefef;
+}
+  .cc-interview-title img {
+    float: left;
+    margin: 0 10px;
+  }
+  .cc-interview-title-stats {
+    float: left;
+    width: 800px;
+    font-size: 18px;
+    text-shadow: 0 0 15px white;
+  }
+  .cc-interview-title-stats > div {
+    margin-bottom: 10px;
+  }
+  .cc-interview-title-stats label {
+    margin-right: 10px;
+    color: #993399;
+    font-weight: bold;
+  }
+  .cc-interview-stats-name {
+    color: #fa524f;
+  }
+.cc-interview {
+  padding-top: 20px;
+}
+  .cc-interview-query {
+    margin-top: 20px;
+    color: #fa524f;
+    font-size: 24px;
+  }
+  .cc-interview-answer {
+    margin: 5px 0 40px;
+  }
