@@ -4,13 +4,13 @@ class Admin::EntriesController < Admin::AdminController
   before_filter :add_participant_list, only: [:index, :edit]
 
   def index
-    limit = (params[:limit]) ? params[:limit].to_i : 10
+    limit = (params[:limit]) ? params[:limit].to_i : 30
 
     if participant
-      @entries = participant.entries
+      @entries = participant.entries.desc(:written_at)
       @name = participant.name
     else
-      @entries = Entry.all
+      @entries = Entry.all.desc(:written_at)
       @name = 'Everyone'
     end
 
