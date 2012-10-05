@@ -1,6 +1,10 @@
 Catcalledr::Application.routes.draw do
   get "home/index"
 
+  resources :participants, only: [:show] do
+
+  end
+
   namespace :admin do
     resources :participants do
       resources :bios

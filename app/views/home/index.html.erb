@@ -15,16 +15,18 @@
         <a name="participants"></a>
         <h2>The Participants</h2>
         <% @participants.each do |participant| %>
-          <div class="cc-participant">
-            <img src="/profile-pic.png" />
-            <div class="cc-participant-stats">
-              <div class="cc-participant-stats-name"><%= participant.name %></div>
-              <div class="cc-participant-stats-age"><%= participant.age %></div>
-              <div class="cc-participant-stats-race"><%= participant.race %></div>
-              <div class="cc-participant-stats-hood"><%= participant.hood %></div>
-              <div class="cc-participant-stats-sex"><%= participant.sex %></div>
+          <%= link_to participant do %>
+            <div class="cc-participant">
+              <img alt="<%= participant.name %>" />
+              <div class="cc-participant-stats">
+                <div class="cc-participant-stats-name"><%= participant.name %></div>
+                <div class="cc-participant-stats-age"><%= participant.age %></div>
+                <div class="cc-participant-stats-race"><%= participant.race %></div>
+                <div class="cc-participant-stats-hood"><%= participant.hood %></div>
+                <div class="cc-participant-stats-sex"><%= participant.sex %></div>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
 
@@ -33,7 +35,7 @@
         <h2>Their Entrance Interviews</h2>
         <% @participants.each do |participant| %>
           <div class="cc-interview-title clearfix">
-            <img src="profile-pic.png">
+            <img alt="<%= participant.name %>" />
             <div class="cc-interview-title-stats">
               <div class="cc-interview-stats-name"><%= participant.name %></div>
               <div class="cc-interview-stats-age"><label>Age</label>
