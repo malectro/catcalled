@@ -1,4 +1,4 @@
-<div class="cc-paper cc-participant-page">
+<div class="cc-paper cc-participant-page clearfix">
   <div class="cc-col-l">
     <img class="cc-participant-pic" alt="<%= @participant.name %>" />
     <div class="cc-participant-page-stats">
@@ -9,23 +9,29 @@
       <div class="cc-participant-stats-sex"><%= @participant.sex %></div>
     </div>
     <div class="cc-participant-links">
-      <div><%= link_to "Entrance Interview", "bio" %></div>
+      <div><%= link_to "Entrance Interview", "#bio", class: "selected" %></div>
       <div class="cc-participant-entry-links">
         <% @participant.entries.each do |entry| %>
-          <div><%= link_to entry.occured_at.strftime('%a, %b %d'), "entry" %></div>
+          <div><%= link_to entry.occured_at.strftime('%a, %b %d'), "#entry-#{entry.id}" %></div>
         <% end %>
       </div>
     </div>
   </div>
   <div class="cc-col-r">
+    <a name="bio"></a>
     <div class="cc-participant-bio">
+      <h2>Entrance Interview</h2>
       <% @participant.bio.answers.each_index do |i| %>
         <div class="cc-interview-query"><%= Bio::QUESTIONS[i] %></div>
         <div class="cc-interview-answer"><%= raw @participant.bio.answer(i) %></div>
       <% end %>
     </div>
     <% @participant.entries.each do |entry| %>
-      <div class="cc-entry"><%= entry.text_html %></div>
+      <a name="entry-<%= entry.id %>"></a>
+      <div class="cc-entry" data-id="<%= entry.id %>">
+        <h2><%= entry.occured_at.strftime('%a, %b %d') %></h2>
+        <div><%= entry.text_html %></div>
+      </div>
     <% end %>
   </div>
 </div>

@@ -143,8 +143,38 @@ h2 {
   width: 160px;
   height: 160px;
 }
+.cc-participant-page {
+  padding-bottom: 20px;
+  .cc-participant-pic {
+    display: block;
+  }
+}
+.cc-participant-links {
+  a.selected {
+    font-weight: bold;
+    cursor: default;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
 .cc-participant-entry-links {
   margin-top: 10px;
 }
-.cc-participant-page {
+.cc-participant-page-stats {
+  width: 140px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background: $pink;
+  > div {
+    color: $purple;
+  }
 }
+.cc-entry {
+  h2 {
+    margin-bottom: 10px;
+  }
+  margin-bottom: 40px;
+}
+
+

@@ -1,3 +1,16 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-// You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$(function () {
+  var hash = location.hash.substr(1);
+
+  /* participant selection */
+  var $links = $('.cc-participant-links a');
+  $links.click(function () {
+    $links.removeClass('selected');
+    $(this).addClass('selected');
+  }).removeClass('selected').each(function () {
+    if (this.href.search(location.hash) > -1) {
+      $(this).addClass('selected');
+    }
+  });
+
+});
+

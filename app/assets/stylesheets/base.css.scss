@@ -21,12 +21,17 @@ body {
 }
 
 .cc-col-l {
+  position: fixed;
+  z-index: 2;
   float: left;
-  width: 300px;
+  width: 200px;
+  padding-top: 40px;
 }
 .cc-col-r {
   float: left;
-  width: 680px;
+  margin-left: 200px;
+  width: 780px;
+  padding-top: 40px;
 }
 
 /* colors */
@@ -34,7 +39,7 @@ $gray: #666;
 $dark-gray: #333;
 $red: #fa524f;
 $purple: #993399;
-$blue: blue;
+$blue: #2b91ff;
 $pink: #ffefef;
 
 
