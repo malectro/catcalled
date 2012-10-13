@@ -23,13 +23,13 @@
   <div class="cc-col-r">
     <a class="cc-entry-anchor" name="bio"></a>
     <div class="cc-participant-bio">
-      <h2>Entrance Interview</h2>
+      <h2><lights></lights>Entrance Interview</h2>
       <% @participant.bio.answers.each_index do |i| %>
         <div class="cc-interview-query"><%= Bio::QUESTIONS[i] %></div>
         <div class="cc-interview-answer"><%= raw @participant.bio.answer(i) %></div>
       <% end %>
     </div>
-    <h2>Entries</h2>
+    <h2><crossing></crossing>Entries</h2>
     <% @participant.entries.each do |entry| %>
       <a class="cc-entry-anchor" name="entry-<%= entry.id %>"></a>
       <div class="cc-entry" data-id="<%= entry.id %>">
