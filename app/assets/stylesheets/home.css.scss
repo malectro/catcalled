@@ -5,8 +5,8 @@
 
 h2 {
   font-size: 40px;
-  border-bottom: 1px solid #993399;
-  color: #993399;
+  border-bottom: 1px solid $purple;
+  color: $purple;
 }
 
 /* title */
@@ -17,25 +17,25 @@ h2 {
   .cc-title h1 {
     font-size: 70px;
     font-weight: 400;
-    color: #fa524f;
+    color: $red;
   }
     .cc-title h1 span {
-      color: #993399;
+      color: $purple;
     }
   .cc-subtitle {
     position: relative;
     top: -10px;
     padding-left: 20px;
     text-indent: 300px;
-    color: #666;
+    color: $gray;
   }
 
 /* nav */
 .cc-nav {
   padding: 10px 0;
-  border-bottom: 1px solid #999;
-  background: #993399;
-  color: #333;
+  border-bottom: 1px solid $gray;
+  background: $purple;
+  color: $dark-gray;
 }
   .cc-nav a {
     margin-right: 20px;
@@ -67,6 +67,7 @@ h2 {
 }
   .cc-participant img {
     width: 160px;
+    height: 150px;
   }
   .cc-participant-stats {
     display: none;
@@ -99,7 +100,7 @@ h2 {
 }
 .cc-interview-title {
   padding: 10px 0;
-  background: #ffefef;
+  background: $pink;
 }
   .cc-interview-title img {
     float: left;
@@ -118,20 +119,32 @@ h2 {
   }
   .cc-interview-title-stats label {
     margin-right: 10px;
-    color: #993399;
+    color: $purple;
     font-weight: bold;
   }
   .cc-interview-stats-name {
-    color: #fa524f;
+    color: $red;
   }
 .cc-interview {
   padding-top: 20px;
 }
   .cc-interview-query {
     margin-top: 20px;
-    color: #fa524f;
+    color: $red;
     font-size: 24px;
   }
   .cc-interview-answer {
     margin: 5px 0 40px;
   }
+
+
+/* single participant */
+.cc-participant-pic {
+  width: 160px;
+  height: 160px;
+}
+.cc-participant-entry-links {
+  margin-top: 10px;
+}
+.cc-participant-page {
+}

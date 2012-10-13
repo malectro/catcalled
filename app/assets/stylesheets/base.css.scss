@@ -19,19 +19,6 @@ body {
   font-size: 16px;
   font-weight: 300;
 }
-/* colors */
-/*
- * gray: #666
- * red: #fa524f
- * purple: #993399
- */
-a, a:visited {
-  color: blue;
-}
-a:hover {
-  text-decoration: underline;
-}
-
 
 .cc-col-l {
   float: left;
@@ -40,4 +27,20 @@ a:hover {
 .cc-col-r {
   float: left;
   width: 680px;
+}
+
+/* colors */
+$gray: #666;
+$dark-gray: #333;
+$red: #fa524f;
+$purple: #993399;
+$blue: blue;
+$pink: #ffefef;
+
+
+a, a:visited {
+  color: $blue;
+}
+a:hover {
+  text-decoration: underline;
 }
