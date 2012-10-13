@@ -14,7 +14,7 @@
             <div class="cc-participant">
               <%= image_tag "participants/#{participant.name}.png", alt: participant.name, class: "cc-participant-pic" %>
               <div class="cc-participant-stats">
-                <div class="cc-participant-stats-name"><%= participant.name %></div>
+                <div class="cc-participant-stats-name">#<%= participant.name %></div>
                 <div class="cc-participant-stats-age"><%= participant.age %></div>
                 <div class="cc-participant-stats-race"><%= participant.race %></div>
                 <div class="cc-participant-stats-hood"><%= participant.hood %></div>
@@ -32,7 +32,7 @@
           <div class="cc-interview-title clearfix">
             <%= image_tag "participants/#{participant.name}.png", alt: participant.name, class: "cc-participant-pic" %>
             <div class="cc-interview-title-stats">
-              <div class="cc-interview-stats-name"><%= participant.name %></div>
+              <div class="cc-interview-stats-name">#<%= participant.name %></div>
               <div class="cc-interview-stats-age"><label>Age</label>
                 <%= participant.age %>
               </div>

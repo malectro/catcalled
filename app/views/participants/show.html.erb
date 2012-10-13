@@ -2,7 +2,8 @@
 
 <div class="cc-paper cc-participant-page clearfix">
   <div class="cc-col-l">
-    <img class="cc-participant-pic" alt="<%= @participant.name %>" />
+    <%= image_tag "participants/#{@participant.name}.png", alt: @participant.name, class: "cc-participant-pic" %>
+    <strong>#<%= @participant.name %></strong><br /><br />
     <div class="cc-participant-page-stats">
       <div class="cc-participant-stats-name"><%= @participant.name %></div>
       <div class="cc-participant-stats-age"><%= @participant.age %></div>

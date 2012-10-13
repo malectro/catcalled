@@ -153,6 +153,7 @@ h2 {
 .cc-participant-page {
   padding-bottom: 20px;
   .cc-participant-pic {
+    width: 250px;
     display: block;
   }
 }
@@ -169,7 +170,7 @@ h2 {
   margin-top: 10px;
 }
 .cc-participant-page-stats {
-  width: 140px;
+  display: none;
   padding: 10px;
   margin-bottom: 20px;
   background: $pink;
