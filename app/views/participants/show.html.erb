@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="cc-col-r">
-    <a name="bio"></a>
+    <a class="cc-entry-anchor" name="bio"></a>
     <div class="cc-participant-bio">
       <h2>Entrance Interview</h2>
       <% @participant.bio.answers.each_index do |i| %>
@@ -29,10 +29,11 @@
         <div class="cc-interview-answer"><%= raw @participant.bio.answer(i) %></div>
       <% end %>
     </div>
+    <h2>Entries</h2>
     <% @participant.entries.each do |entry| %>
-      <a name="entry-<%= entry.id %>"></a>
+      <a class="cc-entry-anchor" name="entry-<%= entry.id %>"></a>
       <div class="cc-entry" data-id="<%= entry.id %>">
-        <h2><%= entry.occured_at.strftime('%a, %b %d') %></h2>
+        <h3><%= entry.occured_at.strftime('%a, %b %d') %></h3>
         <div><%= raw entry.text_html %></div>
       </div>
     <% end %>
