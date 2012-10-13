@@ -30,7 +30,7 @@
       <a name="entry-<%= entry.id %>"></a>
       <div class="cc-entry" data-id="<%= entry.id %>">
         <h2><%= entry.occured_at.strftime('%a, %b %d') %></h2>
-        <div><%= entry.text_html %></div>
+        <div><%= raw entry.text_html %></div>
       </div>
     <% end %>
   </div>
