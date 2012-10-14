@@ -1,0 +1,26 @@
+<div class="cc-profile">
+  <div class="cc-profile-title clearfix">
+    <%= image_tag "participants/#{participant.name}.png", alt: participant.name, class: "cc-participant-pic" %>
+    <div class="cc-profile-title-stats">
+      <div class="cc-interview-stats-name">#<%= participant.name %></div>
+      <div class="cc-interview-stats-age"><label>Age</label>
+        <%= participant.age %>
+      </div>
+      <div class="cc-interview-stats-race"><label>Race</label>
+        <%= participant.race %>
+      </div>
+      <div class="cc-interview-stats-hood"><label>Neighborhood</label>
+        <%= participant.hood %>
+      </div>
+      <div class="cc-interview-stats-sex"><label>Sexuality</label>
+        <%= participant.sex %>
+      </div>
+    </div>
+  </div>
+  <div class="cc-interview">
+    <% participant.bio.answers.each_index do |i| %>
+      <div class="cc-interview-query"><%= Bio::QUESTIONS[i] %></div>
+      <div class="cc-interview-answer"><%= raw participant.bio.answer(i) %></div>
+    <% end %>
+  </div>
+</div>

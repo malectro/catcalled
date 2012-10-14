@@ -20,6 +20,9 @@ $(function () {
   checkNavHeight();
   $(window).scroll(checkNavHeight);
 
+  /* profiles */
+  var $links
+
   /* participant selection */
   var $links = $('.cc-participant-entry-links a'),
       $bioLink = $('.cc-bio-link'),

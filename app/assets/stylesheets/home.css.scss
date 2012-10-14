@@ -73,7 +73,12 @@ h3 {
 
 /* participants */
 .cc-participants {
+  float: right;
+  width: $participants-column-width;
   margin: 20px 0 0;
+  h2 {
+    margin-right: 10px;
+  }
 }
 .cc-participant {
   position: relative;
@@ -110,6 +115,35 @@ h3 {
     .cc-participant-stats-age, .cc-participant-stats-race, .cc-participant-stats-hood, .cc-participant-stats-sex {
     }
 
+/* profiles */
+.cc-profiles {
+  float: left;
+  width: $profiles-column-width;
+  margin-top: 20px;
+}
+  .cc-profile-title {
+    margin-top: 10px;
+    .cc-participant-pic {
+      float: left;
+      width: 300px;
+    }
+  }
+  .cc-profile-title-stats {
+    float: left;
+    width: 210px;
+    margin-left: 10px;
+    .cc-interview-stats-name {
+      font-size: 50px;
+    }
+    label {
+      display: block;
+      color: $purple;
+      font-weight: bold;
+    }
+    > div {
+      margin-bottom: 5px;
+    }
+  }
 
 /* interviews */
 .cc-interviews {

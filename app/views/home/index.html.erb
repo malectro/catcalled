@@ -7,7 +7,6 @@
 
     <div class="cc-paper">
       <div class="cc-participants clearfix">
-        <a name="participants"></a>
         <h2>The Participants</h2>
         <% @participants.each do |participant| %>
           <%= link_to participant do %>
@@ -25,35 +24,10 @@
         <% end %>
       </div>
 
-      <div class="cc-interviews">
-        <a name="interviews"></a>
-        <h2>Their Entrance Interviews</h2>
-        <% @participants.each do |participant| %>
-          <div class="cc-interview-title clearfix">
-            <%= image_tag "participants/#{participant.name}.png", alt: participant.name, class: "cc-participant-pic" %>
-            <div class="cc-interview-title-stats">
-              <div class="cc-interview-stats-name">#<%= participant.name %></div>
-              <div class="cc-interview-stats-age"><label>Age</label>
-                <%= participant.age %>
-              </div>
-              <div class="cc-interview-stats-race"><label>Race</label>
-                <%= participant.race %>
-              </div>
-              <div class="cc-interview-stats-hood"><label>Neighborhood</label>
-                <%= participant.hood %>
-              </div>
-              <div class="cc-interview-stats-sex"><label>Sexuality</label>
-                <%= participant.sex %>
-              </div>
-            </div>
-          </div>
-          <div class="cc-interview">
-            <% participant.bio.answers.each_index do |i| %>
-              <div class="cc-interview-query"><%= Bio::QUESTIONS[i] %></div>
-              <div class="cc-interview-answer"><%= raw participant.bio.answer(i) %></div>
-            <% end %>
-          </div>
-        <% end %>
+      <div class="cc-profiles">
+        <h2>Profiled Participant</h2>
+        <%= render partial: "profile", locals: {participant: @participants.first} %>
       </div>
+
     </div>
 
