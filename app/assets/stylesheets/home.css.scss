@@ -178,6 +178,7 @@ crossing {
     display: block;
   }
   .cc-participant-bio {
+    margin-top: 40px;
   }
 }
 .cc-participant-links {
@@ -204,6 +205,33 @@ crossing {
 .cc-entry-anchor {
   display: block;
   height: 50px;
+}
+.cc-entry-book-wrap {
+  padding-top: 40px;
+}
+.cc-entry-book {
+  position: relative;
+  clear: both;
+}
+.cc-entry {
+  float: left;
+  margin-top: 20px;
+  width: $right-column-width;
+  h3 {
+    margin-bottom: 5px;
+  }
+}
+.cc-entry-actions {
+  margin-top: 20px;
+  a {
+    margin-right: 10px;
+    &.cc-entry-prev {
+      float: left;
+    }
+    &.cc-entry-next {
+      float: right;
+    }
+  }
 }
 
 /* entry stuff */

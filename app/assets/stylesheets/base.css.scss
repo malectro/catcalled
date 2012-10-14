@@ -24,6 +24,11 @@ $blue: #2b91ff;
 $pink: #ffefef;
 $paper: #efece7;
 
+/* dimensions */
+$site-width: 980px;
+$right-column-width: 720px;
+$left-column-width: 250px;
+
 body {
   font-family: helvetica, sans-serif;
   font-size: 16px;
@@ -35,19 +40,21 @@ body {
   position: fixed;
   z-index: 2;
   float: left;
-  width: 250px;
+  width: $left-column-width;
   padding-top: 40px;
   padding-right: 10px;
 }
 .cc-col-r {
   float: left;
-  margin-left: 260px;
-  width: 720px;
+  margin-left: $left-column-width + 10;
+  width: $right-column-width;
+  overflow: hidden;
 }
 
 
 a, a:visited {
   color: $blue;
+  cursor: pointer;
 }
 a:hover {
   text-decoration: underline;

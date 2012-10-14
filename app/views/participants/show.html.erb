@@ -12,16 +12,15 @@
       <div class="cc-participant-stats-sex"><%= @participant.sex %></div>
     </div>
     <div class="cc-participant-links">
-      <div><%= link_to "Entrance Interview", "#bio", class: "selected" %></div>
+      <div><%= link_to "Entrance Interview", "#bio", class: "cc-bio-link selected" %></div>
       <div class="cc-participant-entry-links">
-        <% @participant.entries.each do |entry| %>
-          <div><%= link_to entry.occured_at.strftime('%a, %b %d'), "#entry-#{entry.id}" %></div>
+        <% @participant.entries.each_index do |i| %>
+          <div><%= link_to @participant.entries[i].occured_at.strftime('%a, %b %d'), "#entry-#{i}" %></div>
         <% end %>
       </div>
     </div>
   </div>
   <div class="cc-col-r">
-    <a class="cc-entry-anchor" name="bio"></a>
     <div class="cc-participant-bio">
       <h2><lights></lights>Entrance Interview</h2>
       <% @participant.bio.answers.each_index do |i| %>
@@ -29,13 +28,25 @@
         <div class="cc-interview-answer"><%= raw @participant.bio.answer(i) %></div>
       <% end %>
     </div>
-    <h2><crossing></crossing>Entries</h2>
-    <% @participant.entries.each do |entry| %>
-      <a class="cc-entry-anchor" name="entry-<%= entry.id %>"></a>
-      <div class="cc-entry" data-id="<%= entry.id %>">
-        <h3><%= entry.occured_at.strftime('%a, %b %d') %></h3>
-        <div><%= raw entry.text_html %></div>
+    <div class="cc-entry-book-wrap" style="display: none;">
+      <h2><crossing></crossing>Entries</h2>
+      <div class="cc-entry-book">
+        <% @participant.entries.each do |entry| %>
+          <!-- <a class="cc-entry-anchor" name="entry-<%= entry.id %>"></a> -->
+          <div class="cc-entry" data-id="<%= entry.id %>">
+            <h3><%= entry.occured_at.strftime('%a, %b %d') %></h3>
+            <div><%= raw entry.text_html %></div>
+            <div class="cc-entry-actions clearfix">
+              <% if entry != @participant.entries.last %>
+                <a class="cc-entry-next">next</a>
+              <% end %>
+              <% if entry != @participant.entries.first %>
+                <a class="cc-entry-prev">previous</a>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
