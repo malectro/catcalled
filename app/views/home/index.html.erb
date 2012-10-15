@@ -7,7 +7,7 @@
 
     <div class="cc-paper">
       <div class="cc-participants clearfix">
-        <h2>The Participants</h2>
+        <!--<h2>The Participants</h2> -->
         <% @participants.each do |participant| %>
           <%= link_to participant do %>
             <div class="cc-participant">
@@ -25,7 +25,7 @@
       </div>
 
       <div class="cc-profiles">
-        <h2>Profiled Participant</h2>
+        <!-- <h2>Profiled Participant</h2> -->
         <%= render partial: "profile", locals: {participant: @participants.first} %>
       </div>
 

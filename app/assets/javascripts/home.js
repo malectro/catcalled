@@ -37,8 +37,17 @@ $(function () {
     $('.cc-participant-bio').fadeIn();
   }
 
+  function setPageHeight(i) {
+    var entryHeight = $('.cc-entry').eq(i).height();
+    $('.cc-entry-book').css('height', entryHeight + 30);
+  }
+
   function showEntry(i) {
-    $('.cc-entry-book').animate({left: -i * rightColWidth}, 200);
+    setPageHeight(i);
+    $('.cc-entry-book').animate({left: -i * rightColWidth}, 200, function () {
+      setPageHeight(i);
+    });
+
     $(window).scrollTop(0);
     currentEntry = i;
 

@@ -9,12 +9,14 @@ h2 {
   border-bottom: 1px solid $border-color;
   color: $loud-text;
   font-family: $title-font;
+  font-weight: bold;
 }
 
 h3 {
   font-family: $title-font;
   color: $loud-text;
   font-size: 24px;
+  font-weight: bold;
 }
 
 /* title */
@@ -110,14 +112,15 @@ h3 {
   .cc-participant-stats {
     display: none;
     position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 210px;
-    height: 255px;
+    top: 0;
+    left: 0;
+    width: 190px;
+    height: 235px;
     padding: 10px;
     font-size: 18px;
     text-decoration: none;
-    background: rgba(100,100,200,0.5);
+    background: rgba(100,100,200,0.8);
+    background: rgba(0,0,0,0.6);
     color: white;
   }
   .cc-participant:hover .cc-participant-stats {
@@ -232,58 +235,63 @@ crossing {
     margin-top: 40px;
   }
 }
-.cc-participant-links {
-  a.selected {
+  .cc-participant-page-name {
+    font-size: 20px;
     font-weight: bold;
-    cursor: default;
-    &:hover {
-      text-decoration: none;
+    color: $loud-text;
+  }
+  .cc-participant-links {
+    a.selected {
+      font-weight: bold;
+      cursor: default;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
-}
-.cc-participant-entry-links {
-  margin-top: 10px;
-}
-.cc-participant-page-stats {
-  display: none;
-  padding: 10px;
-  margin-bottom: 20px;
-  background: $pink;
-  > div {
-    color: $purple;
+  .cc-participant-entry-links {
+    margin-top: 10px;
   }
-}
-.cc-entry-anchor {
-  display: block;
-  height: 50px;
-}
-.cc-entry-book-wrap {
-  padding-top: 40px;
-}
-.cc-entry-book {
-  position: relative;
-  clear: both;
-}
-.cc-entry {
-  float: left;
-  margin-top: 20px;
-  width: $right-column-width;
-  h3 {
-    margin-bottom: 5px;
-  }
-}
-.cc-entry-actions {
-  margin-top: 20px;
-  a {
-    margin-right: 10px;
-    &.cc-entry-prev {
-      float: left;
-    }
-    &.cc-entry-next {
-      float: right;
+  .cc-participant-page-stats {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: $gray;
+    > div {
+      display: inline;
     }
   }
-}
+  .cc-entry-anchor {
+    display: block;
+    height: 50px;
+  }
+  .cc-entry-book-wrap {
+    padding-top: 40px;
+  }
+  .cc-entry-book {
+    position: relative;
+    clear: both;
+    overflow: hidden;
+  }
+  .cc-entry {
+    float: left;
+    margin-top: 20px;
+    width: $right-column-width;
+    h3 {
+      margin-bottom: 5px;
+    }
+  }
+  .cc-entry-actions {
+    margin-top: 20px;
+    a {
+      margin-right: 10px;
+      &.cc-entry-prev {
+        float: left;
+      }
+      &.cc-entry-next {
+        float: right;
+      }
+    }
+  }
 
 /* entry stuff */
 color {
