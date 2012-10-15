@@ -39,6 +39,7 @@ $(function () {
 
   function showEntry(i) {
     $('.cc-entry-book').animate({left: -i * rightColWidth}, 200);
+    $(window).scrollTop(0);
     currentEntry = i;
 
     $bioLink.removeClass('selected');

@@ -19,10 +19,21 @@ html, body, h1, h2, h3, h4, div, p, a, a:visited {
 $gray: #666;
 $dark-gray: #333;
 $red: #fa524f;
-$purple: #993399;
-$blue: #2b91ff;
+$purple: #a818fc;
+$blue: #0083ff;
 $pink: #ffefef;
-$paper: #efece7;
+$paper-old: #efece7;
+$paper: white;
+
+$accent-bg: black;
+$accent-text: white;
+$border-color: $purple;
+$link-color: $purple;
+$loud-text: $purple;
+$quiet-text: $gray;
+
+/* fonts */
+$title-font: Futura, 'Century Gothic', AppleGothic, sans-serif;
 
 /* dimensions */
 $site-width: 980px;
@@ -55,7 +66,7 @@ body {
 
 
 a, a:visited {
-  color: $blue;
+  color: $link-color;
   cursor: pointer;
 }
 a:hover {
