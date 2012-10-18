@@ -1,33 +1,33 @@
-    <div class="cc-title">
-      <h1>Cat<span>called</span></h1>
-      <div class="cc-subtitle">is a two-week long writing project by women living in New York on their experiences with being objectified and sexually harassed on city streets. Each daily log was kept by one of our 11 participants over the course of two weeks in August 2012. In the entries the women reflect on vulnerability, power, objectification, and safety in their urban environments.</div>
-    </div>
+<div class="cc-title"><div class="cc-title-i clearfix">
+  <h1>Cat<span>called</span></h1>
+  <div class="cc-subtitle">is a two-week long writing project by women living in New York on their experiences with being objectified and sexually harassed on city streets. Each daily log was kept by one of our 11 participants over the course of two weeks in August 2012. In the entries the women reflect on vulnerability, power, objectification, and safety in their urban environments.</div>
+</div></div>
 
-    <%= render "layouts/nav" %>
+<%= render "layouts/nav" %>
 
-    <div class="cc-paper">
-      <div class="cc-participants clearfix">
-        <!--<h2>The Participants</h2> -->
-        <% @participants.each do |participant| %>
-          <%= link_to participant do %>
-            <div class="cc-participant">
-              <%= image_tag "participants/#{participant.name}.png", alt: participant.name, class: "cc-participant-pic" %>
-              <div class="cc-participant-stats">
-                <div class="cc-participant-stats-name">#<%= participant.name %></div>
-                <div class="cc-participant-stats-age"><%= participant.age %></div>
-                <div class="cc-participant-stats-race"><%= participant.race %></div>
-                <div class="cc-participant-stats-hood"><%= participant.hood %></div>
-                <div class="cc-participant-stats-sex"><%= participant.sex %></div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+<div class="cc-paper">
+  <div class="cc-participants clearfix">
+    <!--<h2>The Participants</h2> -->
+    <% @participants.each do |participant| %>
+      <%= link_to participant do %>
+        <div class="cc-participant">
+          <%= image_tag "participants/#{participant.name}.png", alt: participant.name, class: "cc-participant-pic" %>
+          <div class="cc-participant-stats">
+            <div class="cc-participant-stats-name">#<%= participant.name %></div>
+            <div class="cc-participant-stats-age"><%= participant.age %></div>
+            <div class="cc-participant-stats-race"><%= participant.race %></div>
+            <div class="cc-participant-stats-hood"><%= participant.hood %></div>
+            <div class="cc-participant-stats-sex"><%= participant.sex %></div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
-      <div class="cc-profiles">
-        <!-- <h2>Profiled Participant</h2> -->
-        <%= render partial: "profile", locals: {participant: @participants.first} %>
-      </div>
+  <div class="cc-profiles">
+    <!-- <h2>Profiled Participant</h2> -->
+    <%= render partial: "profile", locals: {participant: @participants.first} %>
+  </div>
 
-    </div>
+</div>
 

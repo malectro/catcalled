@@ -1,4 +1,4 @@
-.cc-title, .cc-nav-i, .cc-paper {
+.cc-title-i, .cc-nav-i, .cc-paper {
   margin: 0 auto;
   width: 980px;
 }
@@ -21,25 +21,32 @@ h3 {
 
 /* title */
 .cc-title {
+  background: black;
+  color: white;
+}
+.cc-title-i {
   padding: 20px 0 10px;
   font-weight: 300;
 }
   .cc-title h1 {
-    font-size: 70px;
-    /* font-weight: 400; */
+    float: left;
+    font-size: 60px;
     font-weight: bold;
     font-family: $title-font;
     text-transform: uppercase;
+    cursor: default;
   }
     .cc-title h1 span {
       color: $purple;
     }
   .cc-subtitle {
-    position: relative;
-    top: -10px;
-    padding-left: 20px;
-    text-indent: 300px;
-    color: $gray;
+    float: right;
+    width: 610px;
+    margin-top: 15px;
+    text-align: justify;
+    color: $light-gray;
+    color: #eee;
+    font-size: 14px;
   }
 
 /* nav */
@@ -63,6 +70,7 @@ h3 {
   height: 40px;
 }
   a.cc-nav-logo {
+    display: none;
     text-transform: uppercase;
     font-size: 16px;
     color: white;
@@ -212,11 +220,11 @@ h3 {
 /* single participant */
 lights {
   float: left;
-  width: 50px;
-  height: 100px;
+  width: 32px;
+  height: 60px;
   background: image-url('lights.png') no-repeat;
   background-color: $paper;
-  background-size: 50px;
+  background-size: 32px;
 }
 crossing {
   float: left;

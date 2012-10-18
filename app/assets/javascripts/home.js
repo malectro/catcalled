@@ -10,10 +10,12 @@ $(function () {
     var scrollTop = $(window).scrollTop();
     if (scrollTop < navTop && navStuck) {
       $nav.removeClass('stuck');
+      $('.cc-nav-logo').fadeOut();
       navStuck = false;
     }
     else if (scrollTop >= navTop && !navStuck) {
       $nav.addClass('stuck');
+      $('.cc-nav-logo').fadeIn();
       navStuck = true;
     }
   }
