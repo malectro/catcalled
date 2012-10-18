@@ -7,6 +7,8 @@ class Entry
   field :written_at, type: DateTime, default: DateTime.now
   field :occured_at, type: DateTime, default: DateTime.now
 
+  default_scope order_by(occured_at: :asc)
+
   def text_html
     text.gsub("\n", "<br />")
   end
