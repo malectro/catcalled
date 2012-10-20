@@ -25,6 +25,21 @@ $(function () {
   /* profiles */
   var $links
 
+  /* nav */
+  $('.cc-nav-part-link').click(function () {
+    var $partsNav = $('.cc-nav-participants');
+    if ($partsNav.css('display') === 'none') {
+      $partsNav.show();
+      $(document.body).one('click', function () {
+        $partsNav.hide();
+      });
+    }
+    return false;
+  });
+  $('.cc-nav-participants').click(function (event) {
+    event.stopPropagation();
+  });
+
   /* participant selection */
   var $links = $('.cc-participant-entry-links a'),
       $bioLink = $('.cc-bio-link'),
@@ -62,8 +77,13 @@ $(function () {
   }
 
   function showEntryByHash() {
-    var i = parseInt(location.hash.substr(7), 10);
-    showEntry(i);
+    if (location.hash.indexOf('entry') === 1) {
+      var i = parseInt(location.hash.substr(7), 10);
+      showEntry(i);
+    }
+    else if (location.hash === '#bio') {
+      showBio();
+    }
   }
 
   function setEntryHash() {
@@ -71,9 +91,9 @@ $(function () {
   }
 
   // hacky hash detection
-  $links.click(function () {
-    setTimeout(showEntryByHash, 0);
-  });
+  window.onhashchange = function () {
+    showEntryByHash();
+  };
   $bioLink.click(showBio);
 
   if (location.hash && location.hash !== '#bio') {

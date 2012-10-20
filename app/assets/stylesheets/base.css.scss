@@ -64,6 +64,17 @@ body {
   overflow: hidden;
 }
 
+.cc-margins {
+  margin: 0 auto;
+  width: $site-width;
+}
+
+.cc-absolute-center {
+  position: absolute;
+  left: 50%;
+  width: $site-width;
+  margin-left: -($site-width / 2);
+}
 
 a, a:visited {
   color: $link-color;

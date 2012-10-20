@@ -1,9 +1,22 @@
-<div class="cc-nav"><div class="cc-nav-i">
-  <a class="cc-nav-logo" href="/">Catcalled NYC</a>
-  <span class="cc-nav-items">
-    <a href="http://catcalled.tumblr.com/submit">Submit</a>
-    <a href="http://catcalled.tumblr.com">Blog</a>
-    <a href="/">The Participants</a>
-  </span>
-</div></div>
+<div class="cc-nav">
+  <div class="cc-nav-i">
+    <a class="cc-nav-logo" href="/">Catcalled NYC</a>
+    <span class="cc-nav-items">
+      <a href="http://catcalled.tumblr.com/submit">Submit</a>
+      <a href="http://catcalled.tumblr.com">Blog</a>
+      <a class="cc-nav-part-link" href="/">The Participants</a>
+    </span>
+  </div>
+
+  <div class="cc-nav-participants clearfix">
+    <% @participants.each do |participant| %>
+      <%= link_to participant do %>
+        <%= image_tag "participants/#{participant.name}.png", alt: participant.name, class: "cc-participant-pic" %>
+        <div class="cc-nav-participant-name">#<%= participant.name %></div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 <div class="cc-nav-ghost"></div>
+
