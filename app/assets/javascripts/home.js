@@ -41,7 +41,8 @@ $(function () {
   });
 
   /* participant selection */
-  var $links = $('.cc-participant-entry-links a'),
+  var useHistory = window.history && $('.cc-participant-page').hasClass('cc-multi-entry');
+      $links = $('.cc-participant-entry-links a'),
       $bioLink = $('.cc-bio-link'),
       rightColWidth = $('.cc-col-r').width(),
       currentEntry = 0;
@@ -52,6 +53,14 @@ $(function () {
 
     $('.cc-entry-book-wrap').fadeOut();
     $('.cc-participant-bio').fadeIn();
+  }
+
+  function showBioHistory() {
+    if (useHistory) {
+      history.pushState({obj: 'bio'}, '', this.href);
+      shoBio();
+      return false;
+    }
   }
 
   function setPageHeight(i) {
@@ -76,6 +85,17 @@ $(function () {
     $('.cc-entry-book-wrap').fadeIn();
   }
 
+  function changeHistory() {
+    if (useHistory) {
+      var params = this.href.split('/'),
+          id = parseInt(params[6], 10);
+      console.log(params, id);
+      history.pushState({obj: 'entry', id: id}, '', this.href);
+      showEntry(id);
+      return false;
+    }
+  }
+
   function showEntryByHash() {
     if (location.hash.indexOf('entries') === 1) {
       var i = parseInt(location.hash.substr(9), 10);
@@ -88,33 +108,46 @@ $(function () {
     }
   }
 
-  function setEntryHash() {
-    location.hash = "#entries/" + currentEntry;
+  function popHistory(event) {
+    var state = event.state;
+    if (state && state.obj === 'entry') {
+      showEntry(state.id);
+      gTrack(location.pathname);
+    }
+    else if (true || state.obj === 'bio') {
+      showBio();
+      gTrack(location);
+    }
+  }
+  if (useHistory) {
+    window.onpopstate = popHistory;
   }
 
-  // hacky hash detection
-  window.onhashchange = function () {
-    showEntryByHash();
-  };
-  $bioLink.click(showBio);
-
-  if (location.hash) {
-    showEntryByHash();
+  function setEntryHash(path) {
+    //location.hash = "#entries/" + currentEntry;
+    if (useHistory) {
+      history.pushState({ob: 'entry', id: currentEntry}, '', path);
+    }
   }
+
+  $bioLink.click(showBioHistory);
+  $links.click(changeHistory);
 
   $('.cc-entry-book').css({width: $links.length * rightColWidth});
 
   function pageLeft() {
-    if (location.hash !== '#bio' && currentEntry > 0) {
+    if (currentEntry > 0 && useHistory) {
       showEntry(currentEntry - 1);
       setEntryHash();
+      return false;
     }
   }
 
   function pageRight() {
-    if (location.hash !== '#bio' && currentEntry < $links.length - 1) {
+    if (currentEntry < $links.length - 1 && useHistory) {
       showEntry(currentEntry + 1);
       setEntryHash();
+      return false;
     }
   }
 

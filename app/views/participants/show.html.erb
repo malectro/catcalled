@@ -1,6 +1,6 @@
 <%= render "layouts/nav" %>
 
-<div class="cc-paper cc-participant-page clearfix">
+<div class="cc-paper cc-participant-page cc-multi-entry clearfix">
   <div class="cc-col-l">
     <%= image_tag "participants/#{@participant.name}.png", alt: @participant.name, class: "cc-participant-pic" %>
     <div class="cc-participant-page-name">Participant #<%= @participant.name %></div>
@@ -11,10 +11,10 @@
       <div class="cc-participant-stats-sex"><%= @participant.sex %></div>
     </div>
     <div class="cc-participant-links">
-      <div><%= link_to "Entrance Interview", "#bio", class: "cc-bio-link selected" %></div>
+      <div><%= link_to "Entrance Interview", @participant, class: "cc-bio-link selected" %></div>
       <div class="cc-participant-entry-links">
         <% @participant.entries.each_index do |i| %>
-          <div><%= link_to @participant.entries[i].occured_at.strftime('%a, %b %d'), "#entries/#{i}" %></div>
+          <div><%= link_to @participant.entries[i].occured_at.strftime('%a, %b %d'), participant_entry_path(@participant, i) %></div>
         <% end %>
       </div>
     </div>
@@ -30,17 +30,18 @@
     <div class="cc-entry-book-wrap" style="display: none;">
       <h2><crossing></crossing>Entries</h2>
       <div class="cc-entry-book">
-        <% @participant.entries.each do |entry| %>
-          <!-- <a class="cc-entry-anchor" name="entry-<%= entry.id %>"></a> -->
+        <% @participant.entries.each_index do |i| %>
+          <%# it pisses me off that i have to do this %>
+          <% entry = @participant.entries[i] %>
           <div class="cc-entry" data-id="<%= entry.id %>">
             <h3><%= entry.occured_at.strftime('%a, %b %d') %></h3>
             <div><%= raw entry.text_html %></div>
             <div class="cc-entry-actions clearfix">
-              <% if entry != @participant.entries.last %>
-                <a class="cc-entry-next">next</a>
+              <% if @entry != @participant.entries.last %>
+                <%= link_to "next", participant_entry_path(@participant, i + 1), class: "cc-entry-next" %>
               <% end %>
-              <% if entry != @participant.entries.first %>
-                <a class="cc-entry-prev">previous</a>
+              <% if @entry != @participant.entries.first %>
+                <%= link_to "previous", participant_entry_path(@participant, i - 1), class: "cc-entry-prev" %>
               <% end %>
             </div>
           </div>
