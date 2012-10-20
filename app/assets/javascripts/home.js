@@ -81,7 +81,7 @@ $(function () {
       var i = parseInt(location.hash.substr(7), 10);
       showEntry(i);
     }
-    else if (location.hash === '#bio') {
+    else if (true || location.hash === '#bio') {
       showBio();
     }
   }
@@ -96,7 +96,7 @@ $(function () {
   };
   $bioLink.click(showBio);
 
-  if (location.hash && location.hash !== '#bio') {
+  if (location.hash) {
     showEntryByHash();
   }
 
