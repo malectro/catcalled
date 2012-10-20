@@ -116,7 +116,7 @@ $(function () {
     }
     else if (true || state.obj === 'bio') {
       showBio();
-      gTrack(location);
+      gTrack(location.pathname);
     }
   }
   if (useHistory) {
@@ -124,7 +124,6 @@ $(function () {
   }
 
   function setEntryHash(path) {
-    //location.hash = "#entries/" + currentEntry;
     if (useHistory) {
       history.pushState({ob: 'entry', id: currentEntry}, '', path);
     }
