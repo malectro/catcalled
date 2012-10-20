@@ -58,7 +58,7 @@ $(function () {
 
   function showBioHistory() {
     if (useHistory) {
-      history.pushState({obj: 'bio'}, '', this.href);
+      history.pushState({obj: 'bio'}, '', $(this).attr('href'));
       shoBio();
       return false;
     }
@@ -94,7 +94,6 @@ $(function () {
     var params = this.href.split('/'),
         id = parseInt(params[6], 10);
     if (useHistory) {
-      console.log(params, id);
       history.pushState({obj: 'entry', id: id}, '', this.href);
       showEntry(id);
       return false;

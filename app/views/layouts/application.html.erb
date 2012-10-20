@@ -17,13 +17,9 @@
     })();
 
     var gTrack = (function () {
-      try {
-        var pageTracker = _gat._getTracker("UA-35719475-1");
-        pageTracker._trackPageview();
-      } catch(err) {}
       return function (page) {
         try {
-          pageTracker._trackPageview(page);
+          _gat._getTracker("UA-35719475-1")._trackPageview(page);
         } catch(err) {}
       }
     }());
