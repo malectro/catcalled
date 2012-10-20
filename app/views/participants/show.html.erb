@@ -14,7 +14,7 @@
       <div><%= link_to "Entrance Interview", "#bio", class: "cc-bio-link selected" %></div>
       <div class="cc-participant-entry-links">
         <% @participant.entries.each_index do |i| %>
-          <div><%= link_to @participant.entries[i].occured_at.strftime('%a, %b %d'), "#entry-#{i}" %></div>
+          <div><%= link_to @participant.entries[i].occured_at.strftime('%a, %b %d'), "#entries/#{i}" %></div>
         <% end %>
       </div>
     </div>

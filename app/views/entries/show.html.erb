@@ -1,0 +1,45 @@
+<%= render "layouts/nav" %>
+
+<div class="cc-paper cc-participant-page clearfix">
+  <div class="cc-col-l">
+    <%= image_tag "participants/#{@participant.name}.png", alt: @participant.name, class: "cc-participant-pic" %>
+    <div class="cc-participant-page-name">Participant #<%= @participant.name %></div>
+    <div class="cc-participant-page-stats">
+      <div class="cc-participant-stats-age"><%= @participant.age %></div> &middot;
+      <div class="cc-participant-stats-race"><%= @participant.race %></div> &middot;
+      <div class="cc-participant-stats-hood"><%= @participant.hood %></div> &middot;
+      <div class="cc-participant-stats-sex"><%= @participant.sex %></div>
+    </div>
+    <div class="cc-participant-links">
+      <div><%= link_to "Entrance Interview", @participant, class: "cc-bio-link" %></div>
+      <div class="cc-participant-entry-links">
+        <% @participant.entries.each_index do |i| %>
+          <% if i == @entry_index %>
+            <div><%= link_to @participant.entries[i].occured_at.strftime('%a, %b %d'), participant_entry_path(@participant, i), class: "selected" %></div>
+          <% else %>
+            <div><%= link_to @participant.entries[i].occured_at.strftime('%a, %b %d'), participant_entry_path(@participant, i) %></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="cc-col-r">
+    <div class="cc-entry-book-wrap">
+      <h2><crossing></crossing>Entries</h2>
+      <div class="cc-entry-book">
+        <div class="cc-entry" data-id="<%= @entry.id %>">
+          <h3><%= @entry.occured_at.strftime('%a, %b %d') %></h3>
+          <div><%= raw @entry.text_html %></div>
+          <div class="cc-entry-actions clearfix">
+            <% if @entry != @participant.entries.last %>
+              <%= link_to "next", participant_entry_path(@participant, @entry_index + 1), class: "cc-entry-next" %>
+            <% end %>
+            <% if @entry != @participant.entries.first %>
+              <%= link_to "previous", participant_entry_path(@participant, @entry_index - 1), class: "cc-entry-prev" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

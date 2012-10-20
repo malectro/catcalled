@@ -77,17 +77,19 @@ $(function () {
   }
 
   function showEntryByHash() {
-    if (location.hash.indexOf('entry') === 1) {
-      var i = parseInt(location.hash.substr(7), 10);
+    if (location.hash.indexOf('entries') === 1) {
+      var i = parseInt(location.hash.substr(9), 10);
       showEntry(i);
+      gTrack(location.pathname + location.hash);
     }
     else if (true || location.hash === '#bio') {
       showBio();
+      gTrack(location.pathname + location.hash);
     }
   }
 
   function setEntryHash() {
-    location.hash = "#entry-" + currentEntry;
+    location.hash = "#entries/" + currentEntry;
   }
 
   // hacky hash detection

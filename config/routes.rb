@@ -2,7 +2,7 @@ Catcalledr::Application.routes.draw do
   get "home/index"
 
   resources :participants, only: [:show] do
-
+    resources :entries, only: [:show]
   end
 
   namespace :admin do
