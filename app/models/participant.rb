@@ -23,4 +23,8 @@ class Participant
   def selectible
     [name, id]
   end
+
+  def number
+    name.to_i
+  end
 end

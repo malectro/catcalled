@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   before_filter :participants
 
   def participants
-    @participants ||= Participant.all.sort_by(&:name)
+    @participants ||= Participant.all.sort_by(&:number)
   end
 end
