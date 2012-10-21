@@ -142,7 +142,9 @@ $(function () {
 
   function setEntryHash(path) {
     if (useHistory) {
-      history.pushState({ob: 'entry', id: currentEntry}, '', path);
+      var path = location.pathname.split('/').slice(0, 3).join('/') + '/entries/' + currentEntry;
+      console.log(path);
+      history.pushState({obj: 'entry', id: currentEntry}, '', path);
     }
   }
 
