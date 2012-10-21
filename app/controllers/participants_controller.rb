@@ -1,7 +1,7 @@
 class ParticipantsController < ApplicationController
 
   def show
-    @participant = Participant.find(params[:id])
+    @participant = Participant.find_by_name(params[:id])
 
     respond_to do |format|
       format.html

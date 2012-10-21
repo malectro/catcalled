@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
 
   def show
-    @participant = Participant.find(params[:participant_id])
+    @participant = Participant.find_by_name(params[:participant_id])
     @entry = @participant.entries[params[:id].to_i]
     @entry_index = params[:id].to_i
 

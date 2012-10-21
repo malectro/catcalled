@@ -9,7 +9,7 @@
   <div class="cc-participants clearfix">
     <!--<h2>The Participants</h2> -->
     <% @participants.shuffle.each do |participant| %>
-      <%= link_to participant do %>
+      <%= link_to participant_path(participant.name) do %>
         <div class="cc-participant">
           <%= image_tag "participants/#{participant.name}.png", alt: participant.name, class: "cc-participant-pic" %>
           <div class="cc-participant-stats">

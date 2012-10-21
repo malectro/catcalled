@@ -18,6 +18,10 @@ class Participant
     def selectible_list
       Participant.all.map(&:selectible)
     end
+
+    def find_by_name(name)
+      where(name: name).first
+    end
   end
 
   def selectible

@@ -59,7 +59,7 @@ $(function () {
   function showBioHistory() {
     if (useHistory) {
       history.pushState({obj: 'bio'}, '', $(this).attr('href'));
-      shoBio();
+      showBio();
       return false;
     }
   }
