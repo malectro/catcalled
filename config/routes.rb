@@ -1,5 +1,6 @@
 Catcalledr::Application.routes.draw do
   get "home/index"
+  get "about" => "home#about"
 
   resources :participants, only: [:show] do
     resources :entries, only: [:show]
