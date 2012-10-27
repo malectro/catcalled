@@ -348,6 +348,14 @@ crossing {
         float: right;
       }
     }
+    &:hover + .cc-entry-tooltip {
+      opacity: 1;
+    }
+  }
+  .cc-entry-tooltip {
+    opacity: 0;
+    font-size: 12px;
+    -webkit-transition: opacity 200ms linear;
   }
 
 /* entry stuff */
