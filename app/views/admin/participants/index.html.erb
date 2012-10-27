@@ -10,7 +10,7 @@
     <% if participant.profiled %>
       <span>Profiled</span>
     <% else %>
-      <%= link_to "Profile?", admin_participant_profile_path(participant), method: :post %>
+      <%= link_to "Profile?", profile_admin_participant_path(participant), method: :post %>
     <% end %>
     <%# link_to "Delete?", participant, method: :delete %>
   </div>
