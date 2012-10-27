@@ -6,7 +6,7 @@ Catcalledr::Application.routes.draw do
     resources :entries, only: [:show]
     member do
       get :intro
-      get :exit_interview
+      get :exit
     end
   end
 

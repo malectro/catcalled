@@ -1,0 +1,12 @@
+<%= render "layouts/nav" %>
+
+<div class="cc-paper cc-participant-page clearfix">
+  <%= render "participants/nav" %>
+  <div class="cc-col-r">
+    <div class="cc-participant-intro">
+      <h2><lights></lights>Introduction</h2>
+      <div><%= @participant.intro.text_html %></div>
+    </div>
+  </div>
+</div>
+

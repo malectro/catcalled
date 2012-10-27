@@ -98,6 +98,8 @@ $(function () {
       showIntro();
       return false;
     }
+
+    return hashRedirect(this);
   }
 
   function showExitHistory() {
@@ -106,6 +108,8 @@ $(function () {
       showExit();
       return false;
     }
+
+    return hashRedirect(this);
   }
 
   function setPageHeight(i) {
@@ -135,6 +139,19 @@ $(function () {
     $links.eq(i).addClass('selected');
   }
 
+  function hashRedirect(el) {
+    var params = el.href.split('/');
+
+    if (window.history && params[5]) {
+      params[4] = params[4] + '#' + params[5];
+      params.splice(5, 1);
+      location = params.join('/');
+      return false;
+    }
+
+    return true;
+  }
+
   function changeHistory() {
     var params = this.href.split('/'),
         id = parseInt(params[6], 10);
@@ -144,12 +161,8 @@ $(function () {
       showEntry(id);
       return false;
     }
-    else if (window.history && params[5]) {
-      params[4] = params[4] + '#' + params[5];
-      params.splice(5, 1);
-      location = params.join('/');
-      return false;
-    }
+
+    return hashRedirect(this);
   }
 
   function showEntryByHash() {
