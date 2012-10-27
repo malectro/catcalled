@@ -10,6 +10,7 @@ class Participant
   field :sex, type: String
 
   field :active, type: Boolean
+  field :profiled, type: Boolean, default: false
 
   has_one :bio
   has_one :exit_interview

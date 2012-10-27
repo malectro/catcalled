@@ -57,4 +57,13 @@ class Admin::ParticipantsController < Admin::AdminController
     @participant = Participant.find(params[:id])
   end
 
+  def profile
+    @participant = Participant.find(params[:id])
+    profiled = Participant.where(profiled: true).first
+    profiled.update_attribute :profiled, false if profiled
+    @participant.update_attribute :profiled, true
+
+    redirect_to admin_participants_path
+  end
+
 end

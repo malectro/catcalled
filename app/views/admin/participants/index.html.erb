@@ -7,6 +7,11 @@
     <%= link_to "Bio", edit_admin_participant_bio_path(participant, participant.bio) %>
     <%= link_to "Exit Interview", edit_admin_participant_exit_interview_path(participant, participant.exit_interview) %>
     <%= link_to "Entries", admin_participant_entries_path(participant) %>
+    <% if participant.profiled %>
+      <span>Profiled</span>
+    <% else %>
+      <%= link_to "Profile?", admin_participant_profile_path(participant), method: :post %>
+    <% end %>
     <%# link_to "Delete?", participant, method: :delete %>
   </div>
 <% end %>
