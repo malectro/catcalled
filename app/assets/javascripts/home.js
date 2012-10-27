@@ -169,6 +169,23 @@ $(function () {
         showExit();
       }
     }
+    else {
+      var items = location.pathname.split('/'),
+          item = items[3];
+
+      if (!item) {
+        $bioLink.addClass('selected');
+      }
+      else if (item === 'intro') {
+        $introLink.addClass('selected');
+      }
+      else if (item === 'exit') {
+        $exitLink.addClass('selected');
+      }
+      else if (item === 'entries') {
+        $links.eq(items[4]).addClass('selected');
+      }
+    }
   }
   showEntryByHash();
 

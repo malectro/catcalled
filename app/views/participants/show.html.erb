@@ -11,14 +11,7 @@
       <div class="cc-participant-stats-sex"><%= @participant.sex %></div>
     </div>
     <div class="cc-participant-links">
-      <div><%= link_to "Entrance Interview", participant_path(@participant.name), class: "cc-bio-link cc-section-link selected" %></div>
-      <div><%= link_to "Introduction", intro_participant_path(@participant.name), class: "cc-intro-link cc-section-link" %></div>
-      <div class="cc-participant-entry-links">
-        <% @participant.entries.each_index do |i| %>
-          <div><%= link_to @participant.entries[i].occured_at.strftime('%a, %b %d'), participant_entry_path(@participant.name, i) %></div>
-        <% end %>
-      </div>
-      <div><%= link_to "Exit Interview", exit_interview_participant_path(@participant.name), class: "cc-exit-link cc-section-link" %></div>
+      <%= render "nav" %>
     </div>
   </div>
   <div class="cc-col-r">
