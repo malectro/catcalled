@@ -275,8 +275,14 @@ crossing {
     width: 250px;
     display: block;
   }
-  .cc-participant-bio {
+  .cc-participant-bio, .cc-participant-intro, .cc-participant-exit {
     margin-top: 20px;
+  }
+
+  .cc-participant-intro, .cc-participant-exit {
+    h2 {
+      margin-bottom: 10px;
+    }
   }
 }
   .cc-participant-page-name {

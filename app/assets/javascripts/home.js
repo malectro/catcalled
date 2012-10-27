@@ -130,7 +130,7 @@ $(function () {
     $(window).scrollTop(0);
     currentEntry = i;
 
-    $bioLink.removeClass('selected');
+    $sectionLinks.removeClass('selected');
     $links.removeClass('selected');
     $links.eq(i).addClass('selected');
   }
