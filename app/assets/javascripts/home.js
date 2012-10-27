@@ -62,26 +62,30 @@ $(function () {
     $('.cc-participant-intro').fadeOut();
   }
 
-  function showIntro() {
+  function showIntro(immediate) {
+    var fadeTime = (immediate) ? 0 : 200;
+
     $links.removeClass('selected');
     $sectionLinks.removeClass('selected');
     $introLink.addClass('selected');
 
-    $('.cc-entry-book-wrap').fadeOut();
-    $('.cc-participant-bio').fadeOut();
-    $('.cc-participant-exit').fadeOut();
-    $('.cc-participant-intro').fadeIn();
+    $('.cc-entry-book-wrap').fadeOut(fadeTime);
+    $('.cc-participant-bio').fadeOut(fadeTime);
+    $('.cc-participant-exit').fadeOut(fadeTime);
+    $('.cc-participant-intro').fadeIn(fadeTime);
   }
 
-  function showExit() {
+  function showExit(immediate) {
+    var fadeTime = (immediate) ? 0 : 200;
+
     $links.removeClass('selected');
     $sectionLinks.removeClass('selected');
     $exitLink.addClass('selected');
 
-    $('.cc-entry-book-wrap').fadeOut();
-    $('.cc-participant-bio').fadeOut();
-    $('.cc-participant-exit').fadeIn();
-    $('.cc-participant-intro').fadeOut();
+    $('.cc-entry-book-wrap').fadeOut(fadeTime);
+    $('.cc-participant-bio').fadeOut(fadeTime);
+    $('.cc-participant-exit').fadeIn(fadeTime);
+    $('.cc-participant-intro').fadeOut(fadeTime);
   }
 
   function showBioHistory() {
@@ -175,11 +179,11 @@ $(function () {
       }
       else if (location.hash.indexOf('intro') === 1) {
         history.replaceState({obj: 'intro'}, '', path);
-        showIntro();
+        showIntro(true);
       }
       else if (location.hash.indexOf('exit') === 1) {
         history.replaceState({obj: 'exit'}, '', path);
-        showExit();
+        showExit(true);
       }
     }
     else {
