@@ -25,9 +25,11 @@ class Admin::ParticipantsController < Admin::AdminController
   def create
     @participant = Participant.new(params[:participant])
     @participant.bio = Bio.new
+    @participant.intro = Intro.new
+    @participant.exit_interview = ExitInterview.new
 
     respond_to do |format|
-      if @participant.save && @participant.bio.save
+      if @participant.save && @participant.bio.save && @participant.intro.save && @participant.exit_interview.save
         format.html { redirect_to action: :index }
         format.json { render json: @participant, status: :created, location: @participant }
       else

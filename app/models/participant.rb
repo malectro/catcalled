@@ -12,6 +12,8 @@ class Participant
   field :active, type: Boolean
 
   has_one :bio
+  has_one :exit_interview
+  has_one :intro
   has_many :entries
 
   class << self

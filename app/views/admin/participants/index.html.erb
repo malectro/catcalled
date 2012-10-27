@@ -3,7 +3,9 @@
 <% @participants.each do |participant| %>
   <div class="row">
     <%= link_to participant.name, edit_admin_participant_path(participant) %>
+    <%= link_to "Introduction", edit_admin_participant_intro_path(participant, participant.intro) %>
     <%= link_to "Bio", edit_admin_participant_bio_path(participant, participant.bio) %>
+    <%= link_to "Exit Interview", edit_admin_participant_exit_interview_path(participant, participant.exit_interview) %>
     <%= link_to "Entries", admin_participant_entries_path(participant) %>
     <%# link_to "Delete?", participant, method: :delete %>
   </div>

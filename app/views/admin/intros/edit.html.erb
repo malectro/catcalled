@@ -1,0 +1,13 @@
+<h1>Edit <%=@participant.name%>'s Introduction</h1>
+
+<%= form_for([:admin, @participant, @intro]) do |f| %>
+  <div><%= notice %></div>
+
+  <%= f.text_area :text %>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', admin_participants_path, class: 'back' %>
