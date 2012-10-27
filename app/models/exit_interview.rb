@@ -3,7 +3,7 @@ class ExitInterview
 
   belongs_to :participant
 
-  field :text, type: String
+  field :text, type: String, default: ''
 
   def text_html
     text.gsub("\n", "<br />")

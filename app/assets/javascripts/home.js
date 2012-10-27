@@ -44,22 +44,66 @@ $(function () {
   /* participant selection */
   var useHistory = window.history && $('.cc-participant-page').hasClass('cc-multi-entry');
       $links = $('.cc-participant-entry-links a'),
+      $sectionLinks = $('.cc-section-link'),
       $bioLink = $('.cc-bio-link'),
+      $introLink = $('.cc-intro-link'),
+      $exitLink = $('.cc-exit-link'),
       rightColWidth = $('.cc-col-r').width(),
       currentEntry = 0;
 
   function showBio() {
     $links.removeClass('selected');
+    $sectionLinks.removeClass('selected');
     $bioLink.addClass('selected');
 
     $('.cc-entry-book-wrap').fadeOut();
     $('.cc-participant-bio').fadeIn();
+    $('.cc-participant-exit').fadeOut();
+    $('.cc-participant-intro').fadeOut();
+  }
+
+  function showIntro() {
+    $links.removeClass('selected');
+    $sectionLinks.removeClass('selected');
+    $introLink.addClass('selected');
+
+    $('.cc-entry-book-wrap').fadeOut();
+    $('.cc-participant-bio').fadeOut();
+    $('.cc-participant-exit').fadeOut();
+    $('.cc-participant-intro').fadeIn();
+  }
+
+  function showExit() {
+    $links.removeClass('selected');
+    $sectionLinks.removeClass('selected');
+    $exitLink.addClass('selected');
+
+    $('.cc-entry-book-wrap').fadeOut();
+    $('.cc-participant-bio').fadeOut();
+    $('.cc-participant-exit').fadeIn();
+    $('.cc-participant-intro').fadeOut();
   }
 
   function showBioHistory() {
     if (useHistory) {
       history.pushState({obj: 'bio'}, '', $(this).attr('href'));
       showBio();
+      return false;
+    }
+  }
+
+  function showIntroHistory() {
+    if (useHistory) {
+      history.pushState({obj: 'intro'}, '', $(this).attr('href'));
+      showIntro();
+      return false;
+    }
+  }
+
+  function showExitHistory() {
+    if (useHistory) {
+      history.pushState({obj: 'exit'}, '', $(this).attr('href'));
+      showExit();
       return false;
     }
   }
@@ -74,6 +118,8 @@ $(function () {
 
     $('.cc-participant-bio').fadeOut(animationTime);
     $('.cc-entry-book-wrap').fadeIn(animationTime);
+    $('.cc-participant-exit').fadeOut(animationTime);
+    $('.cc-participant-intro').fadeOut(animationTime);
 
     setPageHeight(i);
 
@@ -87,12 +133,12 @@ $(function () {
     $bioLink.removeClass('selected');
     $links.removeClass('selected');
     $links.eq(i).addClass('selected');
-
   }
 
   function changeHistory() {
     var params = this.href.split('/'),
         id = parseInt(params[6], 10);
+
     if (useHistory) {
       history.pushState({obj: 'entry', id: id}, '', this.href);
       showEntry(id);
@@ -107,11 +153,21 @@ $(function () {
   }
 
   function showEntryByHash() {
-    if (location.hash.indexOf('entries') === 1) {
-      console.log(location.hash, location.hash.substr(9), location.hash.substr(1));
-      var i = parseInt(location.hash.substr(9), 10);
-      history.replaceState({obj: 'entry', id: i}, '', location.pathname + '/' + location.hash.substr(1));
-      showEntry(i, true);
+    if (location.hash) {
+      var path = location.pathname + '/' + location.hash.substr(1);
+      if (location.hash.indexOf('entries') === 1) {
+        var i = parseInt(location.hash.substr(9), 10);
+        history.replaceState({obj: 'entry', id: i}, '', path);
+        showEntry(i, true);
+      }
+      else if (location.hash.indexOf('intro') === 1) {
+        history.replaceState({obj: 'intro'}, '', path);
+        showIntro();
+      }
+      else if (location.hash.indexOf('exit') === 1) {
+        history.replaceState({obj: 'exit'}, '', path);
+        showExit();
+      }
     }
   }
   showEntryByHash();
@@ -123,15 +179,25 @@ $(function () {
 
     var state = event.state;
 
-    if (state && state.obj === 'entry') {
-      showEntry(state.id);
-      gTrack(location.pathname);
+    if (state) {
+      if (state.obj === 'entry') {
+        showEntry(state.id);
+      }
+      else if (state.obj === 'intro') {
+        showIntro();
+      }
+      else if (state.obj === 'exit') {
+        showExit();
+      }
     }
-    else if (true || state.obj === 'bio') {
+    else {
       showBio();
-      gTrack(location.pathname);
     }
+
+    gTrack(location.pathname);
   }
+
+  // set history event and prevent it from firing onload
   if (useHistory) {
     popHistory.initial = true;
     window.onpopstate = popHistory;
@@ -148,6 +214,8 @@ $(function () {
   }
 
   $bioLink.click(showBioHistory);
+  $introLink.click(showIntroHistory);
+  $exitLink.click(showExitHistory);
   $links.click(changeHistory);
 
   $('.cc-entry-book').css({width: $links.length * rightColWidth});

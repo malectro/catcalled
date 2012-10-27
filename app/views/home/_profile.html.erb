@@ -17,10 +17,7 @@
       </div>
     </div>
   </div>
-  <div class="cc-interview">
-    <% participant.bio.answers.each_index do |i| %>
-      <div class="cc-interview-query"><%= Bio::QUESTIONS[i] %></div>
-      <div class="cc-interview-answer"><%= raw participant.bio.answer(i) %></div>
-    <% end %>
+  <div class="cc-intro">
+    <%= participant.intro.text_html %>
   </div>
 </div>

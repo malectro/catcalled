@@ -11,12 +11,14 @@
       <div class="cc-participant-stats-sex"><%= @participant.sex %></div>
     </div>
     <div class="cc-participant-links">
-      <div><%= link_to "Entrance Interview", participant_path(@participant.name), class: "cc-bio-link selected" %></div>
+      <div><%= link_to "Entrance Interview", participant_path(@participant.name), class: "cc-bio-link cc-section-link selected" %></div>
+      <div><%= link_to "Introduction", intro_participant_path(@participant.name), class: "cc-intro-link cc-section-link" %></div>
       <div class="cc-participant-entry-links">
         <% @participant.entries.each_index do |i| %>
           <div><%= link_to @participant.entries[i].occured_at.strftime('%a, %b %d'), participant_entry_path(@participant.name, i) %></div>
         <% end %>
       </div>
+      <div><%= link_to "Exit Interview", exit_interview_participant_path(@participant.name), class: "cc-exit-link cc-section-link" %></div>
     </div>
   </div>
   <div class="cc-col-r">
@@ -27,6 +29,17 @@
         <div class="cc-interview-answer"><%= raw @participant.bio.answer(i) %></div>
       <% end %>
     </div>
+
+    <div class="cc-participant-intro" style="display: none;">
+      <h2><lights></lights>Introduction</h2>
+      <div><%= @participant.intro.text_html %></div>
+    </div>
+
+    <div class="cc-participant-exit" style="display: none;">
+      <h2><lights></lights>Exit Interview</h2>
+      <div><%= @participant.exit_interview.text_html %></div>
+    </div>
+
     <div class="cc-entry-book-wrap" style="display: none;">
       <h2><crossing></crossing>Entries</h2>
       <div class="cc-entry-book">

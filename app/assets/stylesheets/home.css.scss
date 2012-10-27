@@ -294,8 +294,12 @@ crossing {
     }
   }
   .cc-participant-entry-links {
-    margin-top: 10px;
+    margin: 10px 0;
   }
+    .cc-intro-link {
+      display: block;
+      margin-top: 10px;
+    }
   .cc-participant-page-stats {
     margin-top: 20px;
     margin-bottom: 20px;

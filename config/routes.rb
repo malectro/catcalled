@@ -4,6 +4,10 @@ Catcalledr::Application.routes.draw do
 
   resources :participants, only: [:show] do
     resources :entries, only: [:show]
+    member do
+      get :intro
+      get :exit_interview
+    end
   end
 
   namespace :admin do
