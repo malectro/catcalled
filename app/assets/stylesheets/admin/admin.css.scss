@@ -19,6 +19,9 @@ h1 {
   text-shadow: 0 -1px 1 #882288;
   font-size: 20px;
   padding: 10px 20px;
+  > a.tab {
+    color: gray;
+  }
 }
 
 .row {
