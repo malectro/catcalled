@@ -1,10 +1,10 @@
 <div class="cc-col-l">
-  <%= image_tag "participants/#{@participant.name}.png", alt: @participant.name, class: "cc-participant-pic" %>
   <div class="cc-participant-page-name">Participant #<%= @participant.name %></div>
+  <%= image_tag "participants/#{@participant.name}.png", alt: @participant.name, class: "cc-participant-pic" %>
   <div class="cc-participant-page-stats">
-    <div class="cc-participant-stats-age"><%= @participant.age %></div> &middot;
-    <div class="cc-participant-stats-race"><%= @participant.race %></div> &middot;
-    <div class="cc-participant-stats-hood"><%= @participant.hood %></div> &middot;
+    <div class="cc-participant-stats-age"><%= @participant.age %></div>
+    <div class="cc-participant-stats-race"><%= @participant.race %></div>
+    <div class="cc-participant-stats-hood"><%= @participant.hood %></div>
     <div class="cc-participant-stats-sex"><%= @participant.sex %></div>
   </div>
   <div class="cc-participant-links">

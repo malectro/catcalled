@@ -175,8 +175,6 @@ div.cc-nav-participants {
     .cc-participant-stats-name {
       font-weight: bold
     }
-    .cc-participant-stats-age, .cc-participant-stats-race, .cc-participant-stats-hood, .cc-participant-stats-sex {
-    }
 
 /* profiles */
 .cc-profiles {
@@ -287,6 +285,7 @@ crossing {
   }
 }
   .cc-participant-page-name {
+    display: none;
     font-size: 20px;
     font-weight: bold;
     color: $loud-text;
@@ -308,11 +307,32 @@ crossing {
       margin-top: 10px;
     }
   .cc-participant-page-stats {
-    margin-top: 20px;
+    margin-top: 5px;
     margin-bottom: 20px;
     color: $gray;
-    > div {
+    .cc-participant-stats-age, .cc-participant-stats-race, .cc-participant-stats-hood, .cc-participant-stats-sex {
       display: inline;
+      font-size: 12px;
+      padding: 5px 10px 0 25px;
+      background-size: 20px;
+      background-position: left center;
+      background-repeat: no-repeat;
+    }
+    .cc-participant-stats-age {
+      background-image: image-url('icons/hourglass.png');
+      background-size: 10px;
+      padding-left: 15px;
+    }
+    .cc-participant-stats-race {
+      background-image: image-url('icons/person.png');
+      background-size: 15px;
+      padding-left: 20px;
+    }
+    .cc-participant-stats-hood {
+      background-image: image-url('icons/compass.png');
+    }
+    .cc-participant-stats-sex {
+      background-image: image-url('icons/heart.png');
     }
   }
   .cc-entry-anchor {
