@@ -203,23 +203,29 @@ div.cc-nav-participants {
       font-weight: bold;
     }
     > div {
-      margin-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    > div div {
+      line-height: 40px;
+      padding-left: 50px;
     }
     .cc-interview-stats-age div {
       @extend .cc-stat-age;
-      padding-left: 25px;
+      background-size: 20px;
+      padding-left: 50px;
     }
     .cc-interview-stats-race div {
       @extend .cc-stat-race;
-      padding-left: 25px;
+      background-size: 30px;
+      padding-left: 50px;
     }
     .cc-interview-stats-hood div {
       @extend .cc-stat-hood;
-      padding-left: 25px;
+      background-size: 40px;
     }
     .cc-interview-stats-sex div {
       @extend .cc-stat-sex;
-      padding-left: 25px;
+      background-size: 40px;
     }
   }
 
@@ -333,9 +339,11 @@ crossing {
     }
     .cc-participant-stats-age {
       @extend .cc-stat-age;
+      padding-left: 15px;
     }
     .cc-participant-stats-race {
       @extend .cc-stat-race;
+      padding-left: 20px;
     }
     .cc-participant-stats-hood {
       @extend .cc-stat-hood;
