@@ -1,6 +1,8 @@
 class Participant
   include Mongoid::Document
 
+  STATS = {age: "Age", race: "Race", hood: "Neighborhood", sex: "Sexuality"}
+
   field :fname, as: :first_name, type: String
   field :lname, as: :last_name, type: String
   field :name, type: String

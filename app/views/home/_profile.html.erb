@@ -3,18 +3,12 @@
     <%= image_tag "participants/#{participant.name}.png", alt: participant.name, class: "cc-participant-pic" %>
     <div class="cc-profile-title-stats">
       <div class="cc-interview-stats-name">#<%= participant.name %></div>
-      <div class="cc-interview-stats-age"><label>Age</label>
-        <%= participant.age %>
-      </div>
-      <div class="cc-interview-stats-race"><label>Race</label>
-        <%= participant.race %>
-      </div>
-      <div class="cc-interview-stats-hood"><label>Neighborhood</label>
-        <%= participant.hood %>
-      </div>
-      <div class="cc-interview-stats-sex"><label>Sexuality</label>
-        <%= participant.sex %>
-      </div>
+      <% Participant::STATS.each do |stat, english| %>
+        <div class="cc-interview-stats-<%= stat %>">
+          <label><%= english %></label>
+          <div><%= participant.send(stat) %></div>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="cc-intro">
