@@ -130,6 +130,7 @@ div.cc-nav-participants {
 .cc-paper {
   @extend .cc-margins;
   padding-bottom: 40px;
+  position: relative;
 }
 
 
@@ -298,6 +299,7 @@ crossing {
   .cc-participant-bio, .cc-participant-intro, .cc-participant-exit {
     position: absolute;
     margin-top: 20px;
+    width: $right-column-width;
   }
 
   .cc-participant-intro, .cc-participant-exit {
