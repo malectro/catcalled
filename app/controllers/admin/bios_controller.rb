@@ -1,10 +1,10 @@
 class Admin::BiosController < Admin::AdminController
-  def update
-    @bio = Bio.find(params[:id])
+  before_filter :get_stuff
 
+  def update
     respond_to do |format|
       if @bio.update_attributes(params[:bio])
-        format.html { redirect_to edit_admin_participant_bio_path(@bio), notice: 'Saved' }
+        format.html { redirect_to edit_admin_participant_bio_path(@participant), notice: 'Saved' }
         format.json { render json: @bio, status: :created, location: @bio }
       else
         format.html { render action: 'edit' }
@@ -14,8 +14,13 @@ class Admin::BiosController < Admin::AdminController
   end
 
   def edit
-    @bio = Bio.find(params[:id])
-    @participant = @bio.participant
+  end
+
+private
+
+  def get_stuff
+    @participant = Participant.find(params[:participant_id])
+    @bio = @participant.bio
   end
 
 end

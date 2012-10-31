@@ -1,6 +1,6 @@
 <h1>Edit <%=@participant.name%>'s Bio</h1>
 
-<%= form_for([:admin, @participant, @bio]) do |f| %>
+<%= form_for([:admin, @participant, @bio], url: admin_participant_bio_path) do |f| %>
   <div><%= notice %></div>
 
   <% Bio::QUESTIONS.each_index do |i| %>

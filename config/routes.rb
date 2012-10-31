@@ -12,7 +12,8 @@ Catcalledr::Application.routes.draw do
 
   namespace :admin do
     resources :participants do
-      resources :bios, :entries, :intros, :exit_interviews
+      resources :entries
+      resource :intro, :exit_interview, :bio
       member do
         post :profile
       end

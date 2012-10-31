@@ -1,6 +1,6 @@
 <h1>Edit <%=@participant.name%>'s Exit Interview</h1>
 
-<%= form_for([:admin, @participant, @exit_interview]) do |f| %>
+<%= form_for([:admin, @participant, @exit_interview], url: admin_participant_exit_interview_path) do |f| %>
   <div><%= notice %></div>
 
   <%= f.text_area :text %>

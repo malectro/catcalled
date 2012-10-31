@@ -1,6 +1,6 @@
 <h1>Edit <%=@participant.name%>'s Introduction</h1>
 
-<%= form_for([:admin, @participant, @intro]) do |f| %>
+<%= form_for([:admin, @intro], url: admin_participant_intro_path) do |f| %>
   <div><%= notice %></div>
 
   <%= f.text_area :text %>
