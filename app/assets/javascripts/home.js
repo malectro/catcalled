@@ -1,6 +1,14 @@
 $(function () {
   var hash = location.hash.substr(1);
 
+  /* fix emails */
+  $('email').each(function () {
+    var email = this.innerHTML.split(' ');
+    $(this).text(
+      email[0] + '@' + email[1] + '.' + email[2]
+    );
+  });
+
   /* nav sticky */
   var $nav = $('.cc-nav'),
       navTop = $('.cc-nav').offset().top,
