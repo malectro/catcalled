@@ -401,6 +401,11 @@ color {
   color: $purple;
   font-weight: normal;
 }
+special {
+  color: $purple;
+  font-family: $title-font;
+  font-weight: bold;
+}
 
 
 .cc-title-img {
@@ -409,4 +414,8 @@ color {
 }
 .cc-about {
   margin-top: 20px;
+  h3 {
+    font-size: inherit;
+  }
 }
+
