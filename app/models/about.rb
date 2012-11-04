@@ -3,6 +3,8 @@ class About
 
   field :short, type: String
   field :long, type: String
+  field :tumblr, type: Boolean
+  field :tumblr_post_id, type: String
 
   def short_html
     short.gsub("\n", "<br />")
