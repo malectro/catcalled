@@ -4,14 +4,9 @@
   <%= render "nav" %>
   <div class="cc-col-r">
     <div class="cc-participant-bio">
-      <h2><lights></lights>Entrance Interview</h2>
-      <% @participant.bio.answers.each_index do |i| %>
-        <div class="cc-interview-query"><%= Bio::QUESTIONS[i] %></div>
-        <div class="cc-interview-answer"><%= raw @participant.bio.answer(i) %></div>
-      <% end %>
     </div>
 
-    <div class="cc-participant-intro" style="display: none;">
+    <div class="cc-participant-intro">
       <h2><lights></lights>Introduction</h2>
       <div><%= @participant.intro.text_html %></div>
     </div>

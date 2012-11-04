@@ -199,7 +199,7 @@ $(function () {
           item = items[3];
 
       if (!item) {
-        $bioLink.addClass('selected');
+        $introLink.addClass('selected');
       }
       else if (item === 'intro') {
         $introLink.addClass('selected');

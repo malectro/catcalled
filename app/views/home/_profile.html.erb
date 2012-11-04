@@ -5,7 +5,6 @@
       <div class="cc-interview-stats-name">#<%= participant.name %></div>
       <% Participant::STATS.each do |stat, english| %>
         <div class="cc-interview-stats-<%= stat %>">
-          <label><%= english %></label>
           <div><%= participant.send(stat) %></div>
         </div>
       <% end %>

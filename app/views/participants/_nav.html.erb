@@ -8,7 +8,6 @@
     <div class="cc-participant-stats-sex"><%= @participant.sex %></div>
   </div>
   <div class="cc-participant-links">
-    <div><%= link_to "Entrance Interview", participant_path(@participant.name), class: "cc-bio-link cc-section-link" %></div>
     <div><%= link_to "Introduction", intro_participant_path(@participant.name), class: "cc-intro-link cc-section-link" %></div>
     <div class="cc-participant-entry-links">
       <% @participant.entries.each_index do |i| %>
