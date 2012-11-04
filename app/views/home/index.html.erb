@@ -25,9 +25,19 @@
   </div>
 
   <div class="cc-profiles">
-    <!-- <h2>Profiled Participant</h2> -->
-    <%= render partial: "profile", locals: {participant: @profiled} %>
+    <% unless @tumblr_on %>
+      <!-- <h2>Profiled Participant</h2> -->
+      <%= render partial: "profile", locals: {participant: @profiled} %>
+    <% end %>
   </div>
 
 </div>
+
+<% content_for :js do %>
+var Tumblr = {
+      key: '<%= ApplicationController::TUMBLR_API_KEY %>',
+      post: '<%= @tumblr_post_id %>',
+      use: <%= @tumblr_on %>
+    };
+<% end %>
 

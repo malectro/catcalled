@@ -301,7 +301,7 @@ $(function () {
 
 
   /* tumblr */
-  if (Tumblr.use) {
+  if (typeof Tumblr !== 'undefined' && Tumblr.use) {
     $.ajax({
       dataType: 'jsonp',
       url: 'http://api.tumblr.com/v2/blog/catcalled.tumblr.com/posts',

@@ -9,11 +9,7 @@
   <![endif]-->
   <%= csrf_meta_tags %>
   <script type="text/javascript">
-    var Tumblr = {
-          key: '<%= ApplicationController::TUMBLR_API_KEY %>',
-          post: '34500986376',
-          use: true
-        };
+    <%= yield :js %>
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-35719475-1']);
