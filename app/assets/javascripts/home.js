@@ -297,8 +297,26 @@ $(function () {
     if (hotKeys[event.which]) {
       hotKeys[event.which]();
     }
-    console.log(event.which);
   });
+
+
+  /* tumblr */
+  if (Tumblr.use) {
+    $.ajax({
+      dataType: 'jsonp',
+      url: 'http://api.tumblr.com/v2/blog/catcalled.tumblr.com/posts',
+      data: {
+        id: Tumblr.post,
+        api_key: Tumblr.key
+      },
+      success: function (ret) {
+        if (ret && ret.meta.status === 200)  {
+          console.log(ret);
+          $('.cc-profiles').html(JST.tumblr(ret.response.posts[0]));
+        }
+      }
+    });
+  }
 
 });
 

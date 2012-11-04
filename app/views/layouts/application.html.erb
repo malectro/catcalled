@@ -6,6 +6,12 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <script type="text/javascript">
+    var Tumblr = {
+          key: '<%= ApplicationController::TUMBLR_API_KEY %>',
+          post: '34522957659',
+          use: true
+        };
+
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-35719475-1']);
     _gaq.push(['_trackPageview']);

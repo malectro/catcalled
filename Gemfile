@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 gem 'mongoid', '~> 3.0.0'
+gem 'ejs'
 
 group :production do
   gem 'mysql2'
