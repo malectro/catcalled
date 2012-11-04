@@ -10,7 +10,7 @@
     <!--<h2>The Participants</h2> -->
     <% @participants.shuffle.each do |participant| %>
       <%= link_to participant_path(participant.name) do %>
-        <div class="cc-participant">
+        <div class="cc-participant"><div class="i">
           <%= image_tag "participants/#{participant.name}.png", alt: participant.name, class: "cc-participant-pic" %>
           <div class="cc-participant-stats">
             <div class="cc-participant-stats-name">#<%= participant.name %></div>
@@ -18,7 +18,7 @@
             <div class="cc-participant-stats-race"><%= participant.race %></div>
             <div class="cc-participant-stats-hood"><%= participant.hood %></div>
             <div class="cc-participant-stats-sex"><%= participant.sex %></div>
-          </div>
+          </div></div>
         </div>
       <% end %>
     <% end %>
