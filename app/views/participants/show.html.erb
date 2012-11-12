@@ -8,12 +8,12 @@
 
     <div class="cc-participant-intro">
       <h2><lights></lights>Introduction</h2>
-      <div><%= @participant.intro.text_html %></div>
+      <div><%= raw @participant.intro.text_html %></div>
     </div>
 
     <div class="cc-participant-exit" style="display: none;">
       <h2><lights></lights>Exit Interview</h2>
-      <div><%= @participant.exit_interview.text_html %></div>
+      <div><%= raw @participant.exit_interview.text_html %></div>
     </div>
 
     <div class="cc-entry-book-wrap" style="display: none;">
