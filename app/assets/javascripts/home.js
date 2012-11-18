@@ -195,7 +195,7 @@ $(function () {
       }
     }
     else {
-      var items = location.pathname.split('/'),
+      var items = pathItems(),
           item = items[3];
 
       if (!item) {
@@ -213,6 +213,15 @@ $(function () {
     }
   }
   showEntryByHash();
+
+  function pathItems() {
+    return location.pathname.split('/');
+  }
+
+  function pathState() {
+    var items = pathItems();
+    return items[3];
+  }
 
   function popHistory(event) {
     if (popHistory.initial) {
@@ -263,18 +272,54 @@ $(function () {
   $('.cc-entry-book').css({width: $links.length * rightColWidth});
 
   function pageLeft() {
-    if (currentEntry > 0 && useHistory) {
+    var obj;
+
+    if (history && history.state) {
+      obj = history.state.obj;
+    }
+    else {
+      obj = pathState();
+    }
+
+    if (obj === 'intro') {
+
+    }
+    else if (obj === 'exit') {
+      showEntry($links.length - 1);
+      setEntryHash();
+      return false;
+    }
+    else if (currentEntry > 0 && useHistory) {
       showEntry(currentEntry - 1);
       setEntryHash();
+      return false;
+    }
+    else if (useHistory) {
+      showIntroHistory();
       return false;
     }
   }
 
   function pageRight() {
-    if (currentEntry < $links.length - 1 && useHistory) {
-      showEntry(currentEntry + 1);
-      setEntryHash();
-      return false;
+    if (useHistory) {
+      var obj = history.state.obj;
+
+      console.log('hi', obj);
+
+      if (obj === 'intro') {
+        showEntry(0);
+        setEntryHash();
+        return false;
+      }
+      else if (currentEntry < $links.length - 1) {
+        showEntry(currentEntry + 1);
+        setEntryHash();
+        return false;
+      }
+      else if (currentEntry === $links.length - 1) {
+        showExitHistory();
+        return false;
+      }
     }
   }
 
