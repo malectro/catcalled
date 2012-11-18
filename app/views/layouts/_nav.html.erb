@@ -10,7 +10,7 @@
   </div>
 
   <div class="cc-nav-participants clearfix">
-    <% @participants.each do |participant| %>
+    <% @participants.reverse_each do |participant| %>
       <%= link_to participant_path(participant.name) do %>
         <%= image_tag "participants/#{participant.name}.png", alt: participant.name, class: "cc-participant-pic" %>
         <div class="cc-nav-participant-name">#<%= participant.name %></div>
