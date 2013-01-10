@@ -8,8 +8,8 @@
     <% end %>
     <div><span class="small">Author</span> <%= respons.author %></div>
     <div><span class="small">Email Address</span> <%= respons.email %></div>
-    <div class="small">Written On <%= respons.written_at.to_s(:long_ordinal) %></div>
-    <div class="small">Edited On <%= respons.updated_at.to_s(:long_ordinal) %></div>
+    <div><span class="small">Written On</span> <%= respons.written_at.to_s(:long_ordinal) %></div>
+    <div><span class="small">Edited On</span> <%= respons.updated_at.to_s(:long_ordinal) %></div>
     <div><%= raw respons.text_html %></div>
     <div><%= link_to 'edit', edit_admin_response_path(respons) %></div>
   </div>
@@ -20,7 +20,7 @@
     <%= link_to 'Previous Page', admin_responses_path(page: @page - 1) %>
   <% end %>
 
-  <% if @responses.count + @limit * @page < @total or true %>
+  <% if @responses.count + @limit * @page < @total %>
     <%= link_to 'Next Page', admin_responses_path(page: @page + 1) %>
   <% end %>
 </div>

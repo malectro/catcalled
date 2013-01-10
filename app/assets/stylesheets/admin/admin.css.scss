@@ -13,6 +13,25 @@
  *= require_tree .
  */
 
+/* colors */
+$gray: #666;
+$dark-gray: #333;
+$light-gray: #ddd;
+$red: #fa524f;
+$purple: #a818fc;
+$blue: #0083ff;
+$pink: #ffefef;
+$paper-old: #efece7;
+$paper: white;
+
+$accent-bg: black;
+$accent-text: white;
+$border-color: $purple;
+$link-color: $blue;
+$loud-text: $purple;
+$quiet-text: $gray;
+$error-color: $red;
+
 h1 {
   background: #993399;
   color: white;
@@ -37,6 +56,10 @@ h1 {
     color: #999;
     font-size: 14px;
   }
+}
+
+.pages {
+  margin-left: 20px;
 }
 
 .back {
@@ -72,5 +95,9 @@ form {
   input[type=submit], input[type=select] {
     font-size: 30px;
   }
+}
+
+.need-review {
+  color: $red;
 }
 
