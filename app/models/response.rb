@@ -5,9 +5,12 @@ class Response
   field :email, type: String
   field :author, type: String
   field :written_at, type: DateTime, default: DateTime.now
+  field :updated_at, type: DateTime, default: DateTime.now
   field :reviewed, type: Boolean, default: false
 
   default_scope order_by(written_at: :asc)
+  scope :reviewed, where(reviewed: true)
+  scope :unreviewed, where(reviewed: false)
 
   def text_html
     text.gsub("\n", "<br />")

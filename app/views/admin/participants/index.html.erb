@@ -1,4 +1,12 @@
-<h1>Edit Participants <%= link_to "Edit Site Descriptions", edit_admin_about_path, class: 'tab' %></h1>
+<h1>
+  Edit Participants
+  <%= link_to "Edit Site Descriptions", edit_admin_about_path, class: 'tab' %>
+  <% if @new_response_count > 0 %>
+    <%= link_to "Curate Responses (#{@new_response_count})", admin_responses_path, class: 'tab' %>
+  <% else %>
+    <%= link_to "Curate Responses", admin_responses_path, class: 'tab' %>
+  <% end %>
+</h1>
 
 <% @participants.each do |participant| %>
   <div class="row">

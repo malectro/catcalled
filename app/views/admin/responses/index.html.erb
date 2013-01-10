@@ -1,0 +1,15 @@
+<h1>Responses</h1>
+
+<% @responses.each do |respons| %>
+  <div class="row">
+    <div class="small">Author <%= respons.author %></div>
+    <div class="small">Email Address <%= respons.email %></div>
+    <div class="small">Written On <%= respons.written_at.to_s(:long_ordinal) %></div>
+    <div class="small">Edited On <%= respons.updated_at.to_s(:long_ordinal) %></div>
+    <div><%= raw respons.text_html %></div>
+    <div><%= link_to 'edit', edit_admin_response_path(respons) %></div>
+  </div>
+<% end %>
+
+<%= link_to 'Back', admin_participants_path, class: 'back' %>
+

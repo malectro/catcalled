@@ -28,6 +28,7 @@ Catcalledr::Application.routes.draw do
     end
     resources :entries
     resource :about
+    resources :responses
   end
 
   # The priority is based upon order of creation:

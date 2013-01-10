@@ -2,6 +2,7 @@ class Admin::ParticipantsController < Admin::AdminController
 
   def index
     @participants = Participant.all
+    @new_response_count = Response.unreviewed.count
   end
 
   def show
