@@ -1,14 +1,15 @@
 <%= form_for @response do |f| %>
   <div>
-    <%= f.label :author %>
+    <%= f.label :author, "Your name or nickname" %>
     <%= f.text_field :author %>
   </div>
   <div>
-    <%= f.label :email %>
+    <%= f.label :email, "Email address (If you'd like us to get back to you.)" %>
     <%= f.text_field :email %>
   </div>
   <div>
-    <%= f.text_area :text %>
+    <%= f.label :text, "Tell us something" %>
+    <%= f.text_area :text, placeholder: "So here's what happened..." %>
   </div>
-  <div><%= f.submit %></div>
+  <div><%= f.submit "Submit Response" %></div>
 <% end %>
