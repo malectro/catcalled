@@ -1,0 +1,18 @@
+<%= form_for [:admin, @response] do |f| %>
+  <div>
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </div>
+  <div>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :reviewed, "reviewed?" %>
+    <%= f.check_box :reviewed %><br />
+  </div>
+  <div>
+    <%= f.text_area :text %>
+  </div>
+  <div><%= f.submit %></div>
+<% end %>

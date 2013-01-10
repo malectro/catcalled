@@ -2,14 +2,28 @@
 
 <% @responses.each do |respons| %>
   <div class="row">
-    <div class="small">Author <%= respons.author %></div>
-    <div class="small">Email Address <%= respons.email %></div>
+    <% if respons.reviewed %>
+    <% else %>
+      <div class="need-review">Needs Review</div>
+    <% end %>
+    <div><span class="small">Author</span> <%= respons.author %></div>
+    <div><span class="small">Email Address</span> <%= respons.email %></div>
     <div class="small">Written On <%= respons.written_at.to_s(:long_ordinal) %></div>
     <div class="small">Edited On <%= respons.updated_at.to_s(:long_ordinal) %></div>
     <div><%= raw respons.text_html %></div>
     <div><%= link_to 'edit', edit_admin_response_path(respons) %></div>
   </div>
 <% end %>
+
+<div class="pages">
+  <% if @page > 0 %>
+    <%= link_to 'Previous Page', admin_responses_path(page: @page - 1) %>
+  <% end %>
+
+  <% if @responses.count + @limit * @page < @total or true %>
+    <%= link_to 'Next Page', admin_responses_path(page: @page + 1) %>
+  <% end %>
+</div>
 
 <%= link_to 'Back', admin_participants_path, class: 'back' %>
 

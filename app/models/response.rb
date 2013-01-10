@@ -8,7 +8,7 @@ class Response
   field :updated_at, type: DateTime, default: DateTime.now
   field :reviewed, type: Boolean, default: false
 
-  default_scope order_by(written_at: :asc)
+  #default_scope order_by(written_at: :asc)
   scope :reviewed, where(reviewed: true)
   scope :unreviewed, where(reviewed: false)
 
