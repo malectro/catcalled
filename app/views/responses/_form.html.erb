@@ -1,0 +1,14 @@
+<%= form_for @response do |f| %>
+  <div>
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.text_area :text %>
+  </div>
+  <div><%= f.submit %></div>
+<% end %>

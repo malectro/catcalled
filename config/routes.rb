@@ -10,6 +10,13 @@ Catcalledr::Application.routes.draw do
     end
   end
 
+  resources :responses, only: [:new, :create] do
+    collection do
+      get :thanks
+    end
+  end
+  get "respond" => "responses#new"
+
   namespace :admin do
     resources :participants do
       resources :entries
