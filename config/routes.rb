@@ -15,7 +15,8 @@ Catcalledr::Application.routes.draw do
       get :thanks
     end
   end
-  get "respond" => "responses#new"
+  get "respond" => "responses#new", as: :respond
+  get "thanks" => "responses#thanks", as: :thanks
 
   namespace :admin do
     resources :participants do

@@ -1,7 +1,5 @@
 class ResponsesController < ApplicationController
 
-  before_filter :fix_time_params, only: [:create, :update]
-
   def new
     @response = Response.new
 
@@ -16,7 +14,7 @@ class ResponsesController < ApplicationController
 
     respond_to do |format|
       if @response.save
-        format.html { redirect_to response_thanks_path }
+        format.html { redirect_to thanks_path }
         format.json { render json: @response, status: :created, location: @response }
       else
         format.html { render action: 'new' }
@@ -27,12 +25,6 @@ class ResponsesController < ApplicationController
 
   def thanks
 
-  end
-
-private
-
-  def fix_time_params
-    collect_date(:written_at)
   end
 
 end
