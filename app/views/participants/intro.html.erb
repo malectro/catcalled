@@ -6,6 +6,10 @@
     <div class="cc-participant-intro">
       <h2><lights></lights>Introduction</h2>
       <div><%= raw @participant.intro.text_html %></div>
+      <div class="cc-entry-actions clearfix">
+        <%= link_to "next", participant_entry_path(@participant.name, 0), class: "cc-entry-next" %>
+        <%= link_to "previous", participant_path(@prev_participant.name), class: "cc-participant-prev" %>
+      </div>
     </div>
   </div>
 </div>

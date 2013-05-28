@@ -319,6 +319,9 @@ $(function () {
       else if (currentEntry === $links.length - 1) {
         showExitHistory();
         return false;
+      } else if (obj === 'exit') {
+        location = "/participants/"
+        return false;
       }
     }
   }

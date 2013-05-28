@@ -6,6 +6,10 @@
     <div class="cc-participant-exit">
       <h2><lights></lights>Exit Interview</h2>
       <div><%= raw @participant.exit_interview.text_html %></div>
+      <div class="cc-entry-actions clearfix">
+        <%= link_to "next", participant_path(@next_participant.name), class: "cc-participant-next" %>
+        <%= link_to "previous", participant_entry_path(@participant.name, @participant.entries.count - 1), class: "cc-entry-prev" %>
+      </div>
     </div>
   </div>
 </div>

@@ -395,10 +395,10 @@ crossing {
     margin-top: 20px;
     a {
       margin-right: 10px;
-      &.cc-entry-prev {
+      &.cc-entry-prev, &.cc-participant-prev {
         float: left;
       }
-      &.cc-entry-next, &.cc-exit-link {
+      &.cc-entry-next, &.cc-exit-link, &.cc-participant-next {
         float: right;
       }
     }

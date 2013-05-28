@@ -21,6 +21,19 @@ private
 
   def participant
     @participant ||= Participant.find_by_name(params[:id])
+    @participant_index ||= participants.index(@participant)
+
+    if @participant == @participants.last
+      @next_participant ||= @participants.first
+    else
+      @next_participant ||= @participants[@participant_index + 1]
+    end
+
+    if @participant_index == 0
+      @prev_participant ||= @participants.last
+    else
+      @prev_participant ||= @participants[@participant_index - 1]
+    end
   end
 
 end

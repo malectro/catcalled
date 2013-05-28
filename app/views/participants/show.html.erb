@@ -9,11 +9,19 @@
     <div class="cc-participant-intro">
       <h2><lights></lights>Introduction</h2>
       <div><%= raw @participant.intro.text_html %></div>
+      <div class="cc-entry-actions clearfix">
+        <%= link_to "next", participant_entry_path(@participant.name, 0), class: "cc-entry-next" %>
+        <%= link_to "previous", participant_path(@prev_participant.name), class: "cc-participant-prev" %>
+      </div>
     </div>
 
     <div class="cc-participant-exit" style="display: none;">
       <h2><lights></lights>Exit Interview</h2>
       <div><%= raw @participant.exit_interview.text_html %></div>
+      <div class="cc-entry-actions clearfix">
+        <%= link_to "next", participant_path(@next_participant.name), class: "cc-participant-next" %>
+        <%= link_to "previous", participant_entry_path(@participant.name, @participant.entries.count - 1), class: "cc-entry-prev" %>
+      </div>
     </div>
 
     <div class="cc-entry-book-wrap" style="display: none;">
