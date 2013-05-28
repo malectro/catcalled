@@ -31,7 +31,7 @@ $(function () {
   $(window).scroll(checkNavHeight);
 
   /* profiles */
-  var $links
+  var $links;
 
   /* nav */
   $('.cc-nav-part-link').click(function (event) {
@@ -106,22 +106,22 @@ $(function () {
 
   function showIntroHistory() {
     if (useHistory) {
-      history.pushState({obj: 'intro'}, '', $(this).attr('href'));
+      history.pushState({obj: 'intro'}, '', $introLink.attr('href'));
       showIntro();
       return false;
     }
 
-    return hashRedirect(this);
+    return hashRedirect($introLink[0]);
   }
 
   function showExitHistory() {
     if (useHistory) {
-      history.pushState({obj: 'exit'}, '', $(this).attr('href'));
+      history.pushState({obj: 'exit'}, '', $exitLink.attr('href'));
       showExit();
       return false;
     }
 
-    return hashRedirect(this);
+    return hashRedirect($exitLink[0]);
   }
 
   function setPageHeight(i) {
@@ -281,6 +281,8 @@ $(function () {
       obj = pathState();
     }
 
+    console.log('hi', obj, currentEntry);
+
     if (obj === 'intro') {
 
     }
@@ -295,14 +297,14 @@ $(function () {
       return false;
     }
     else if (useHistory) {
-      showIntroHistory();
+      showIntroHistory.call(this);
       return false;
     }
   }
 
   function pageRight() {
     if (useHistory) {
-      var obj = history.state.obj;
+      var obj = (history.state) ? history.state.obj : 'intro';
 
       console.log('hi', obj);
 
@@ -311,17 +313,17 @@ $(function () {
         setEntryHash();
         return false;
       }
+      else if (obj === 'exit') {
+        location = "/participants/"
+        return false;
+      }
       else if (currentEntry < $links.length - 1) {
         showEntry(currentEntry + 1);
         setEntryHash();
         return false;
       }
       else if (currentEntry === $links.length - 1) {
-        showExitHistory();
-        return false;
-      } else if (obj === 'exit') {
-        location = "/participants/"
-        return false;
+        return showExitHistory.call();
       }
     }
   }
