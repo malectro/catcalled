@@ -154,6 +154,8 @@ $(function () {
   function hashRedirect(el) {
     var params = el.href.split('/');
 
+    console.log(params);
+
     if (window.history && params[5]) {
       params[4] = params[4] + '#' + params[5];
       params.splice(5, 1);
@@ -268,6 +270,8 @@ $(function () {
   $introLink.click(showIntroHistory);
   $exitLink.click(showExitHistory);
   $links.click(changeHistory);
+  $('.cc-participant-next').click(function () { return hashRedirect(this); });
+  $('.cc-participant-prev').click(function () { return hashRedirect(this); });
 
   $('.cc-entry-book').css({width: $links.length * rightColWidth});
 
