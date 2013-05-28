@@ -398,7 +398,7 @@ crossing {
       &.cc-entry-prev {
         float: left;
       }
-      &.cc-entry-next {
+      &.cc-entry-next, &.cc-exit-link {
         float: right;
       }
     }

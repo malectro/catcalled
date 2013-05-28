@@ -12,6 +12,8 @@
           <div class="cc-entry-actions clearfix">
             <% if @entry != @participant.entries.last %>
               <%= link_to "next", participant_entry_path(@participant.name, @entry_index + 1), class: "cc-entry-next" %>
+            <% else %>
+              <%= link_to "next", exit_participant_path(@participant.name), class: "cc-exit-link" %>
             <% end %>
             <% if @entry != @participant.entries.first %>
               <%= link_to "previous", participant_entry_path(@participant.name, @entry_index - 1), class: "cc-entry-prev" %>
