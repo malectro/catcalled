@@ -272,33 +272,29 @@ $(function () {
   $('.cc-entry-book').css({width: $links.length * rightColWidth});
 
   function pageLeft() {
-    var obj;
+    if (useHistory) {
+      var obj = (history.state) ? history.state.obj : 'intro';
 
-    if (history && history.state) {
-      obj = history.state.obj;
-    }
-    else {
-      obj = pathState();
-    }
+      console.log('hi', obj, currentEntry);
 
-    console.log('hi', obj, currentEntry);
-
-    if (obj === 'intro') {
-
-    }
-    else if (obj === 'exit') {
-      showEntry($links.length - 1);
-      setEntryHash();
-      return false;
-    }
-    else if (currentEntry > 0 && useHistory) {
-      showEntry(currentEntry - 1);
-      setEntryHash();
-      return false;
-    }
-    else if (useHistory) {
-      showIntroHistory.call(this);
-      return false;
+      if (obj === 'intro') {
+        hashRedirect($('.cc-participant-prev')[0]);
+        return false;
+      }
+      else if (obj === 'exit') {
+        showEntry($links.length - 1);
+        setEntryHash();
+        return false;
+      }
+      else if (currentEntry > 0 && useHistory) {
+        showEntry(currentEntry - 1);
+        setEntryHash();
+        return false;
+      }
+      else if (useHistory) {
+        showIntroHistory.call(this);
+        return false;
+      }
     }
   }
 
@@ -314,7 +310,7 @@ $(function () {
         return false;
       }
       else if (obj === 'exit') {
-        location = "/participants/"
+        hashRedirect($('.cc-participant-next')[0]);
         return false;
       }
       else if (currentEntry < $links.length - 1) {
