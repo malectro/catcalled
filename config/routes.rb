@@ -10,7 +10,7 @@ Catcalledr::Application.routes.draw do
     end
   end
 
-  resources :responses, only: [:new, :create] do
+  resources :responses, only: [:new, :create, :index] do
     collection do
       get :thanks
     end

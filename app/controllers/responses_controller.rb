@@ -1,7 +1,7 @@
 class ResponsesController < ApplicationController
 
   def index
-
+    @responses = Response.reviewed
   end
 
   def new

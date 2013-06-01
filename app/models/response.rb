@@ -12,8 +12,14 @@ class Response
   scope :reviewed, where(reviewed: true)
   scope :unreviewed, where(reviewed: false)
 
+  class << self
+    def reviewed
+      where(reviewed: true).limit(20)
+    end
+  end
+
   def text_html
-    text.gsub("\n", "<br />")
+    text.html_safe.gsub("\n", "<br />")
   end
 
   def written_at_time
