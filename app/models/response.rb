@@ -19,7 +19,7 @@ class Response
   end
 
   def text_html
-    text.html_safe.gsub("\n", "<br />")
+    text.gsub("\n", "<br />")
   end
 
   def written_at_time

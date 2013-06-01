@@ -9,7 +9,7 @@
       <div class="response-cell">
         <div class="response-title"><%= respons.author %></div> &middot;
         <div class="response-time"><%= respons.written_at.strftime('%a, %b %d') %></div>
-        <div class="response-text"><%= raw respons.text_html %></div>
+        <div class="response-text"><%= respons.text %></div>
       </div>
     <% end %>
   </div>
