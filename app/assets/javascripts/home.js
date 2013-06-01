@@ -368,5 +368,12 @@ $(function () {
     });
   }
 
+  /* responses */
+  $('.responses').masonry({
+    itemSelector: '.response-cell',
+    columnWidth: 310,
+    gutterWidth: 20
+  });
+
 });
 

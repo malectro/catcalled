@@ -2,13 +2,16 @@
 
 <div class="cc-paper">
   <br />
-  <h4>Responses</h4>
+  <h4>Your Responses</h4>
 
-  <% @responses.each do |respons| %>
-    <div class="response-cell">
-      <div class="response-title"><%= respons.author %></div>
-      <div class="response-text"><%= raw respons.text_html %></div>
-      <div class="response-time"><%= respons.written_at.strftime('%a, %b %d') %></div>
-    </div>
-  <% end %>
+  <div class="responses">
+    <% @responses.each do |respons| %>
+      <div class="response-cell">
+        <div class="response-title"><%= respons.author %></div> &middot;
+        <div class="response-time"><%= respons.written_at.strftime('%a, %b %d') %></div>
+        <div class="response-text"><%= raw respons.text_html %></div>
+      </div>
+    <% end %>
+  </div>
 </div>
+

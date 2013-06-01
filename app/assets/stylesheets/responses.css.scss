@@ -1,0 +1,15 @@
+.response-cell {
+  padding: 10px 10px 10px 0;
+  width: 310px;
+  border-top: 1px solid $border-color;
+}
+  .response-title {
+    display: inline;
+    font-size: 24px;
+    color: $loud-text;
+  }
+  .response-time {
+    display: inline;
+    color: $quiet-text;
+  }
+

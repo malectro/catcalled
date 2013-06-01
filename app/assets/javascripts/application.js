@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.masonry
 //= require jquery_ujs
 //= require underscore-min
 //= require html5shiv
