@@ -11,6 +11,16 @@ class Admin::ResponsesController < Admin::AdminController
     @response = Response.find(params[:id])
   end
 
+  def destroy
+    @response = Response.find(params[:id])
+    if @response.destroy
+      redirect_to admin_responses_path
+    else
+      flash[:notice] = "Could not delete the response"
+      redirect_to admin_responses_path
+    end
+  end
+
   def update
     @response = Response.find(params[:id])
 
