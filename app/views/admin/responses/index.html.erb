@@ -19,11 +19,13 @@
 <% end %>
 
 <div class="pages">
+  <span><%= @offset + 1 %> - <%= @responses.count(true) + @offset %> of <%= @total %></span>
+
   <% if @page > 0 %>
     <%= link_to 'Previous Page', admin_responses_path(page: @page - 1) %>
   <% end %>
 
-  <% if @responses.count + @limit * @page < @total %>
+  <% if @responses.count(true) + @offset < @total %>
     <%= link_to 'Next Page', admin_responses_path(page: @page + 1) %>
   <% end %>
 </div>

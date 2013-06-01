@@ -4,7 +4,8 @@ class Admin::ResponsesController < Admin::AdminController
     @page = (params[:page]) ? params[:page].to_i : 0
     @limit = 20
     @total = Response.count
-    @responses = Response.all.order_by(reviewed: :asc).limit(@limit).offset(@limit * @page)
+    @offset = @limit * @page
+    @responses = Response.all.order_by(reviewed: :asc).limit(@limit).offset(@offset)
   end
 
   def edit
@@ -34,7 +35,6 @@ class Admin::ResponsesController < Admin::AdminController
       end
     end
   end
-
 
 end
 

@@ -1,5 +1,9 @@
 class ResponsesController < ApplicationController
 
+  def index
+
+  end
+
   def new
     @response = Response.new
 
