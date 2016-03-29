@@ -10,7 +10,7 @@
     <div><span class="small">Email Address</span> <%= respons.email %></div>
     <div><span class="small">Written On</span> <%= respons.written_at.to_s(:long_ordinal) %></div>
     <div><span class="small">Edited On</span> <%= respons.updated_at.to_s(:long_ordinal) %></div>
-    <div><%= raw respons.text_html %></div>
+    <div><%= raw h(respons.text).gsub("\n", '<br>') %></div>
     <div class="response-links">
       <%= link_to 'edit', edit_admin_response_path(respons) %> &middot;
       <%= link_to 'delete', admin_response_path(respons), method: :delete, confirm: 'Are you sure???' %>
